@@ -107,22 +107,3 @@ btn.onclick = function (){
  recom.classList.toggle('show')
 }
 
-
-
-
-
-
-
-
-
-
-//
-//       (\__/)
-//    ⠀  (•ㅅ•)     los profes arreglando
-//  　＿ノ ヽ ノ＼  __   el js
-//  /　`/ ⌒Ｙ⌒ Ｙ　ヽ
-// ( 　(三ヽ人　 /　　|
-// |　ﾉ⌒＼ ￣￣ヽ　 ノ   
-// ヽ＿＿＿＞､＿＿_／
-// 　　 ｜( 王 )〈    (\__/)
-//  　　/ ﾐ ー 彡\    (•ㅅ•)  yo

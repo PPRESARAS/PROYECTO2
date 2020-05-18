@@ -27,7 +27,7 @@ fetch(url)
       if(myJson.results[i].poster_path == null){
         var lifallo = ""
         lifallo += "<li class='unidad uk-transition-toggle'>"
-        lifallo += '<img class="poster uk-transition-scale-up" src="../imagenes/mati.jpg" alt=""</a>'
+        lifallo += '<img class="poster uk-transition-scale-up" src="/PROYECTO2/public/images/mati.JPG" alt=""</a>'
         lifallo += '<div class="contenedortitulo uk-transition-scale-up"> <a href="detalles.html?id='+datos.results[i].id+'" class="tituloserie">'+datos.results[i].name+'</a></div>'
         lifallo += "</li>"
         destino.innerHTML += lifallo}

@@ -92,7 +92,7 @@ fetch(urlA)
       if (myJson.results[i].poster_path == null){
       var posterfallo = ""
       posterfallo += '<li class="uk-transition-toggle liBuscador">'
-      posterfallo += '<img class="fail uk-transition-scale-up" src="../imagenes/fail.jpg" alt="" </a>'
+      posterfallo += '<img class="fail uk-transition-scale-up" src="/PROYECTO2/public/images/fail.jpg" alt="" </a>'
       resultadosS.innerHTML += posterfallo
       }
       else {

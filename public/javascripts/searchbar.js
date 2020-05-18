@@ -33,7 +33,7 @@ fetch(url)
     if(datos.results[i].poster_path == null){
       var lifallo = ""
       lifallo += "<li class='unidad uk-transition-toggle'>"
-      lifallo += '<img class="poster uk-transition-scale-up" src="../imagenes/mati.jpg" alt=""</a>'
+      lifallo += '<img class="poster uk-transition-scale-up" src="/PROYECTO2/public/images/mati.JPG" alt=""</a>'
       lifallo += '<div class="contenedortitulo uk-transition-scale-up"> <a href="detalles.html?id='+datos.results[i].id+'" class="tituloserie">'+datos.results[i].name+'</a></div>'
       lifallo += "</li>"
       destino.innerHTML += lifallo
@@ -50,19 +50,3 @@ fetch(url)
 
 
 })
-
-
-//para que cuando busques , si escribis 2 caracteres , arroje error
-/*document.querySelector("textobuscado").onsubmit = function (e) {
-  var busco =document.buscar.buscador.value;
-  console.log(busco);
-
-  if(busco.length <==3) {
-    e.preventDefault ()
-    UIkit.notification ({message: "Ingrese mas de 3 caracteres", status: 'warning',
-  timeout:2000})
-} else {
-
-}
-  }
-}*/
