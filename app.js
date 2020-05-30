@@ -10,18 +10,6 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-
-const Usuario = require("./servidor/usuario");
-
-/* Requqerir la BD */
-const usuario = new usuario({
-host:"localHost",
-user:"desarrollo",
-password:"desarrollo",
-dataBase:"desarrollo",
-});
-
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -34,16 +22,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-
-
-/* agregar el nuevo metodo que  acabo de crear */
-oUsuario.agregarUsuario(req.body.n,req.body.c);
-
-
-
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
