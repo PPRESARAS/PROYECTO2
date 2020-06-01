@@ -1,6 +1,6 @@
 /* Tabla de usuarios */
 
-Create table ifnotexistsUsuarios (
+Create table if not exists Usuarios (
 id biginit not null,
 nombreDeUsuario varchar(25) not null,
 email varchar(320) not null,
@@ -10,6 +10,7 @@ fechaDeNacimiento date null,
 );
 
 insert into Usuarios (
+
 id,
 nombreDeUsuario,
 email, 
