@@ -1,7 +1,7 @@
 var Review = require('./resenias.js')
 
 module.exports = function (sequelize, DataTypes) {
-    // const bcrypt = require("bcryptjs");
+    const bcrypt = require("bcryptjs");
 
     let user = sequelize.define(
         'User',
@@ -10,11 +10,13 @@ module.exports = function (sequelize, DataTypes) {
                 type: DataTypes.INTEGER(11).UNSIGNED,
                 primaryKey: true,
                 autoIncrement: true,
+                allowNull: false
             },
             username: { 
                 type: DataTypes.STRING, 
                 primaryKey: true, 
                 autoincrement: true, 
+                allowNull: false,
                 unique: true,
             }, 
             email: { 
@@ -29,7 +31,7 @@ module.exports = function (sequelize, DataTypes) {
             },
             birthdate: {
                 type: DataTypes.DATE,
-                allowNull: false,
+                allowNull: true,
                 defaultValue: DataTypes.NOW,
             },
             favorite_genre: {
