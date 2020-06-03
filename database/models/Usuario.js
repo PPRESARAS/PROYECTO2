@@ -44,17 +44,5 @@ module.exports = function (sequelize, DataTypes) {
         }
     );
 
-    // user.associate = function(models) {
-    //     user.hasMany(models.Review, {
-    //         as: 'review',
-    //     });
-    // }
-
-    // user.beforeCreate(user => {
-    //     if (user.password !== null) {
-    //         user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
-    //     }
-    // });
-
     return user;
 }
