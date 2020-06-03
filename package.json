@@ -3,16 +3,13 @@
   "version": "1.0.0",
   "description": "PROYECTO2",
   "main": "app.js",
+
   "dependencies": {
-    "mysql": "^2.18.1",
     "mysql2": "^2.1.0",
-<<<<<<< Updated upstream
-    "sequelize": "^5.21.10",
-    "mysql": "^2.18.1"
-  }
-=======
+    "mysql": "^2.18.1",
     "sequelize": "^5.21.10"
   },
+
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -27,5 +24,4 @@
     "url": "https://github.com/PPRESARAS/PROYECTO2/issues"
   },
   "homepage": "https://github.com/PPRESARAS/PROYECTO2#readme"
->>>>>>> Stashed changes
 }
