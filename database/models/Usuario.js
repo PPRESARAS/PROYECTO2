@@ -1,25 +1,60 @@
-module.exports = (sequelize, dataTypes) => {
-    let alias = "Usuarios";
-    let cols = {
-        id: {
-            type: dataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
+const Review = require('./resenias.js')
+
+module.exports = function (sequelize, DataTypes) {
+    // const bcrypt = require("bcryptjs");
+
+    const user = sequelize.define(
+        'User',
+        {
+            id: {
+                type: DataTypes.INTEGER(11).UNSIGNED,
+                primaryKey: true,
+                autoIncrement: true,
+            },
+            username: { 
+                type: DataTypes.STRING, 
+                primaryKey: true, 
+                autoincrement: true, 
+                unique: true,
+            }, 
+            email: { 
+                type: DataTypes.STRING(255), 
+                allowNull: false,
+                unique: true,
+            },
+            password: {
+                type: DataTypes.CHAR(255),
+                allowNull: false,
+                defaultValue: "",
+            },
+            birthdate: {
+                type: DataTypes.DATE,
+                allowNull: false,
+                defaultValue: DataTypes.NOW,
+            },
+            favorite_genre: {
+                type: DataTypes.STRING(255),
+                allowNull: true,
+                defaultValue: "Drama",
+            },
         },
-        name: {
-            type: dataTypes.STRING
-        },
-        email: {
-            type: dataTypes.STRING
+        {
+            tableName: 'users',
+            timestamps: false,
         }
+    );
 
-    };
-    let config = {
-        tableName = "usuarios",
-        timeStamps = false
-    }
+    // user.associate = function(models) {
+    //     user.hasMany(models.Review, {
+    //         as: 'review',
+    //     });
+    // }
 
-    const Usuario = sequelize.define(alias, cols, config);
+    // user.beforeCreate(user => {
+    //     if (user.password !== null) {
+    //         user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+    //     }
+    // });
 
-    return Usuario;
+    return user;
 }
