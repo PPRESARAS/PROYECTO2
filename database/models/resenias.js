@@ -1,4 +1,4 @@
-const User = require('./usuario.js')
+var User = require('./usuario.js')
 
 module.exports = function (sequelize, DataTypes) {
     const resenia = sequelize.define(
@@ -42,19 +42,5 @@ module.exports = function (sequelize, DataTypes) {
             timestamps: true // columnas de created y updated
         }
     );
-
-    // review.associate = function(models) {
-    //     review.belongsTo(models.User, {
-    //         as: 'user',
-    //         foreignKey: 'user_id',
-    //     });
-    // }
-
-    // review.beforeCreate(review => {
-    //     if (review.rating > 10 || review.rating < 0) {
-                 // no lo guardes
-    //     }
-    // })
-
     return resenia;
 }

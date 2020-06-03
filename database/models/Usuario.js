@@ -1,9 +1,9 @@
-const Review = require('./resenias.js')
+var Review = require('./resenias.js')
 
 module.exports = function (sequelize, DataTypes) {
     // const bcrypt = require("bcryptjs");
 
-    const user = sequelize.define(
+    let user = sequelize.define(
         'User',
         {
             id: {
@@ -43,18 +43,6 @@ module.exports = function (sequelize, DataTypes) {
             timestamps: false,
         }
     );
-
-    // user.associate = function(models) {
-    //     user.hasMany(models.Review, {
-    //         as: 'review',
-    //     });
-    // }
-
-    // user.beforeCreate(user => {
-    //     if (user.password !== null) {
-    //         user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
-    //     }
-    // });
 
     return user;
 }
