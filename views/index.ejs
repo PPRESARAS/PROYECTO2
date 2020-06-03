@@ -17,27 +17,28 @@
 
 <div class="container">
 
-    <header class="cabecera">
-      <ul class="headerul">
-        <a src="logotipo" href="/views/index.ejs"> <img  src="/images/logo.png" alt="logotipo" class="logo"> </a>
-        <form class="buscadorheader" action="/views/searchbar.ejs" method="get">
-          <div class="form-groupSearch">
-            <input type="search" class="form-control" name="search" placeholder="  Buscar" >
-          </div>
-        </form>
-
-        <div class="uk-inline boundary botones">
-          <button class="uk-button uk-button-default botonlindo" type="button">Menu</button>
-            <div uk-dropdown="pos: left-top" style="position:fixed;">
-              <ul class="uk-nav uk-dropdown-nav">
-                  <li class="uk-active miLi"><a href="buscar.ejs">Filtros</a></li>
-                  <li miLi><a "uk-button uk-button-default" href="listado.ejs" id="generos">Generos</a>
-                  <li class="uk-nav-divider miLi"></li>
-              </ul>
-            </div>
+  <header class="cabecera">
+    <ul class="headerul">
+      <a src="logotipo" href="/views/index.ejs"> <img  src="/images/logo.png" alt="logotipo" class="logo"> </a>
+      <form class="buscadorheader" action="/views/searchbar.ejs" method="get">
+        <div class="form-groupSearch">
+          <input type="search" class="form-control" name="search" placeholder="  Buscar" >
         </div>
-      </ul>
-  	</header>
+      </form>
+
+      <div class="uk-inline boundary botones">
+        <button class="uk-button uk-button-default botonlindo" type="button">Menu</button>
+          <div uk-dropdown="pos: left-top" style="position:fixed;">
+            <ul class="uk-nav uk-dropdown-nav">
+                <li class="uk-active miLi"><a href="/login">Log-in</a></li>
+                <li miLi><a href="/registracion" >Registrarse</a></li>
+                <li class="uk-nav-divider miLi"><a href="/login">Mi Perfil</a></li>
+            </ul>
+          </div>
+      </div>
+    </ul>
+  </header>
+
     <main>
       <section class= "series">
         <div class="titulo">
@@ -79,23 +80,19 @@
 
     </main>
 
-        <footer  class="Piedepagina">
-            <ul class="grupo">
-              <li>
-                <h2 class="nombre">Pedro Presaras</h2>
-              </li>
-              <li>
-                <h2 class="nombre" >Alejo Gonzalez Medina</h2>
-               </li>
-            </ul>
-
-
-          <div class="logoTmdb">
-            <img src="/images/logodb.png" alt=""    href="#top" uk-scroll>
-          </div>
-
-
-        </footer>
+    <footer  class="Piedepagina">
+      <ul class="grupo">
+        <li>
+          <h2 class="nombre">Pedro Presaras</h2>
+        </li>
+        <li>
+          <h2 class="nombre" >Alejo Gonzalez Medina</h2>
+         </li>
+      </ul>
+      <div class="logoTmdb">
+        <img src="/images/logodb.png"  href="#top" uk-scroll alt="">
+      </div>
+    </footer>
 
   </body>
 </html>

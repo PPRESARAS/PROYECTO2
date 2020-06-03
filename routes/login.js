@@ -10,7 +10,16 @@ const  usersController = require('../controllers/usuarioController');
 
 router.get('/', controller.confirmUser);
 
+<<<<<<< HEAD
 router.post('/', controller.logUser);
+=======
+
+// router.post('/reviews', controller.confirmUser);
+
+router.post('/', controller.logUser);
+
+// router.get('/reviews/:id', controller.get.reviews);
+>>>>>>> master
 
 
 module.exports = router;
