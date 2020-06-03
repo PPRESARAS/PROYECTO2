@@ -5,9 +5,13 @@ const controller = require('../controllers/loginController');
 
 // router.get(‘/‘, usersController.search);
 
-Router.get(‘/reviews’, user controller.confirmUser);
+router.get('/', controller.confirmUser);
 
+<<<<<<< 6cbe63bf59ee165781078d7a714728a9de7b2024
 router.post('/reviews', usersController.confrimUser);
+=======
+router.post('/', controller.logUser);
+>>>>>>> correcciones
 
 // router.get('/reviews/:id', usersController.get.Reviews);
 
