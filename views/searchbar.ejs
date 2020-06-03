@@ -1,48 +1,42 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/stylesheets/stylesearchbar.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHOWTIME</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
-    <link rel="stylesheet" href="/public/stylesheets/stylesearchbar.css">
+    <link rel="stylesheet" href="/stylesheets/stylesearchbar.css">
 
+<!-- UIkit JS -->
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
 <script src="https://kit.fontawesome.com/0fb732c451.js" crossorigin="anonymous"></script>
+</head>
 
-  </head>
-  <body>
-    <div class="container">
+<body>
 
+<div class="container">
 
-      <header class="cabecera">
-        <ul class="headerul">
-          <a src="logotipo" href="/PROYECTO2/views/index.ejs"> <img  src="/PROYECTO2/public/images/logo.png" alt="logotipo" class="logo"></a>
-          
-          <form class="buscadorheader" action="/PROYECTO2/views/searchbar.ejs" method="get">
-            <div class="form-groupSearch">
-              <input type="search" class="form-control search" name="search" placeholder="Buscar" value="">
-                        </div>
-                        <div class="alerta" hidden>
-                          No se han encontrado resultados para tu busqueda
-                        </div>
-          </form>
+    <header class="cabecera">
+      <ul class="headerul">
+        <a src="logotipo" href="/views/index.ejs"> <img  src="/images/logo.png" alt="logotipo" class="logo"> </a>
+        <form class="buscadorheader" action="/views/searchbar.ejs" method="get">
+          <div class="form-groupSearch">
+            <input type="search" class="form-control" name="search" placeholder="  Buscar" >
+          </div>
+        </form>
 
-
-      <div class="uk-inline boundary botones">
+        <div class="uk-inline boundary botones">
           <button class="uk-button uk-button-default botonlindo" type="button">Menu</button>
-        <div uk-dropdown="pos: left-top" style="position:fixed;">
-            <ul class="uk-nav uk-dropdown-nav">
-                <li class="uk-active miLi"><a href="/PROYECTO2/views/index.ejs">Home</a></li>
-                <li class="uk-active miLi"><a href="/PROYECTO2/views/buscar.ejs">Filtros</a></li>
-                <li miLi><a "uk-button uk-button-default" href="/PROYECTO2/views/listado.ejs" id="generos">Generos</a>
-                <li class="uk-nav-divider miLi"></li>
-            </ul>
+            <div uk-dropdown="pos: left-top" style="position:fixed;">
+              <ul class="uk-nav uk-dropdown-nav">
+                  <li class="uk-active miLi"><a href="buscar.ejs">Filtros</a></li>
+                  <li miLi><a "uk-button uk-button-default" href="listado.ejs" id="generos">Generos</a>
+                  <li class="uk-nav-divider miLi"></li>
+              </ul>
             </div>
         </div>
-
-    		</header>
+      </ul>
+  	</header>
   <main>
     <div class="textobuscado">
 
