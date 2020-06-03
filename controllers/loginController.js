@@ -16,7 +16,7 @@ confirmUser: function (req, res){
         }
         else{
             console.log(resultado.id);
-            res.redirect('/users/reviews/'+resultado.id)
+            res.redirect('/users/reviews/' + resultado.id)
         }
     })
 },

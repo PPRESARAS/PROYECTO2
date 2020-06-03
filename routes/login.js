@@ -7,7 +7,7 @@ const controller = require('../controllers/loginController');
 
 Router.get(‘/reviews’, user controller.confirmUser);
 
-router.post('/reviews', usersController.confrimUser);
+Router.post('/reviews', usersController.confrimUser);
 
 // router.get('/reviews/:id', usersController.get.Reviews);
 
