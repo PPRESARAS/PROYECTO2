@@ -3,38 +3,37 @@ let moduloLogin =require('../modulo-login');
 
 
 
+module.exports = {
 logUser: function(req, res) {
-    res.render('login');
+   return res.render('login', {
+        errors: false,
+        email: false,
+   });
 },
 
 /* Confirma el Login*/
 confirmUser: function (req, res){
-    moduloLogin.validar(req.body.email, req.body.password)
-    .then(resultado=>{
-        if(resultado== undefined){
-            res.redirect('/users/reviews'); /* lo mando al login devuelta */
-        }
-        else{
-            res.redirect('/users/reviews/' + resultado.id)
+    moduloLogin.validar(req.body.EmailDeUsuario, req.body.ConstraseniaDeUsuario)
+    .then(function (resultado) {
+        if (resultado != null) {
+            if (bcrypt.compareSync(req.body.ConstraseniaDeUsuario, results.ConstraseniaDeUsuario)) {
+                return usuarioController.myProfile(req, res, resultado)
+            } else {
+                return res.render('login', {
+                    errors : "Contraseña Incorrecta",
+                    email : req.body.EmailDeUsuario,
+                });
+            }
+        } else {
+            next(); // se va al catch
         }
     })
-},
-
-/* va a el perfil y le muestra las resenias, al usuario */
-getReviews: function (req, res) {
-debug.Resena.findAll({
-    where: [
-        {usuario_id: req.params.id}
-    ],
-    include: [ "usuario" ]
-})
-.then(resultado=>{
-    res.render('reviews', {resultado:resultado})
-})
-
-},
-
-
-
-
-module.exports = usersController;
+        .catch (function (error) {
+            return res.render('login', {
+                errors : "Usuario Inexistente",
+                email : req.body.EmailDeUsuario,
+            });
+        })
+    },
+    
+}
