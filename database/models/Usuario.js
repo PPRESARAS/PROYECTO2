@@ -1,9 +1,9 @@
-const Review = require('./resenias.js')
+var Review = require('./resenias.js')
 
 module.exports = function (sequelize, DataTypes) {
     // const bcrypt = require("bcryptjs");
 
-    const user = sequelize.define(
+    let user = sequelize.define(
         'User',
         {
             id: {

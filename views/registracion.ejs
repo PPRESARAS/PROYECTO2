@@ -34,42 +34,43 @@
           </div>
         </ul>
         </header>
+        
     <div class="w-full">
         <div class="w-full max-w-xs mx-auto my-12">
-            <form action="/register" method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <form action="/registracion" method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-                        Username <span class="text-red-500 font-bold">*</span>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="NombreDeUsuario">
+                        NOMBRE DE USUARIO <span class="text-red-500 font-bold">*</span>
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="<%= username ? username : '' %>" id="username" type="text" name="username" required onkeypress="return avoidSpace(event)">
-                    <% if (errors && errors.username_error) { %>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="<%= NombreDeUsuario ? NombreDeUsuario : '' %>" id="username" type="text" name="Nombre De Usuario" required onkeypress="return avoidSpace(event)">
+                    <% if (errors && errors.NombreDeUsuario_error) { %>
                         <span class="text-xs text-center text-red-400">
-                            <%= errors.username_error %>
+                            <%= errors.NombreDeUsuario_error %>
                         </span>
                     <% } %>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
-                        Email <span class="text-red-500 font-bold">*</span>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="EmailDeUsuario">
+                        EMAIL <span class="text-red-500 font-bold">*</span>
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="<%= email ? email : '' %>" id="email" type="email" name="email" required onkeypress="return avoidSpace(event)">
-                    <% if (errors && errors.email_error) { %>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="<%= EmailDeUsuario ? EmailDeUsuario : '' %>" id="email" type="email" name="Email" required onkeypress="return avoidSpace(event)">
+                    <% if (errors && errors.EmailDeUsuario_error) { %>
                         <span class="text-xs text-center text-red-400">
-                            <%= errors.email_error %>
+                            <%= errors.EmailDeUsuario_error %>
                         </span>
                     <% } %>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-                        Password <span class="text-red-500 font-bold">*</span>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="ContraseniaDeUsuario">
+                        CONTRASEÑA <span class="text-red-500 font-bold">*</span>
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" name="password" required onkeypress="return avoidSpace(event)">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" name="Contraseña" required onkeypress="return avoidSpace(event)">
                 </div>
-                <div class="mb-6 text-center">
+                <!-- <div class="mb-6 text-center">
                     <!-- This is an example component -->
-                    <div class="relative inline-flex mx-auto">
+                    <!-- <div class="relative inline-flex mx-auto">
                         <svg class="w-2 h-2 absolute top-0 right-0 m-4 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412 232"><path d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z" fill="#648299" fill-rule="nonzero"/></svg>
-                        <select class="text-sm border border-gray-300 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none" name="favorite_genre">
+                        <!-- <select class="text-sm border border-gray-300 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none" name="favorite_genre">
                             <option value="Drama">What's your favourite genre?</option>
                             <option value="Comedy">Comedy</option>
                             <option value="Horror">Horror</option>
@@ -79,25 +80,27 @@
                             <option value="Adventure">Adventure</option>
                             <option value="Talkshow">Talkshow</option>
                             <option value="Fiction">Fiction</option>
-                        </select>
-                    </div>
-                    <!-- <label class="block text-gray-700 text-sm font-bold mb-2" for="favorite_genre">
-                        Género Favorito
+                        </select> -->
+                    <!-- </div> --> -->
+                    <!-- <label class="block text-gray-700 text-sm font-bold mb-2" for="favorite_genre"> -->
+                        <!-- Género Favorito
                     </label>
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="favorite_genre" type="text" > -->
-                </div>
+                <!-- </div> --> -->
                 <div class="mb-8">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="birthdate">
-                        Birthdate
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="FechaDeNacimiento">
+                        FECHA DE NACIMIENTO
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" value="<%= birthdate ? birthdate : '' %>" id="birthdate" type="date" name="birthdate">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" value="<%= FechaDeNacimiento ? FechaDeNacimiento : '' %>" id="birthdate" type="date" name="Fecha De Nacimiento">
                 </div>
                 <div class="flex items-center justify-between">
                     <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                        Register
+                        REGISTRAR
                     </button>
-                    <a class="inline-block align-baseline font-bold text-xs text-blue-500 hover:text-blue-800" href="/login">
+                    <a class="inline-block align-baseline font-bold text-xs text-blue-500 hover:text-blue-800" href="/login"> 
+                         <!-- //cambiar el href -->
                         Login
+                       
                     </a>
                 </div>
             </form>

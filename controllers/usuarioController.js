@@ -1,6 +1,6 @@
-const DB = require('../database/models');
-const Op = DB.Sequelize.Op;
-const { Resenia } = require('../database/models')
+let DB = require('../database/models');
+let Op = DB.Sequelize.Op;
+let { Resenia } = require('../database/models');
 
 module.exports = {
     index: function(req, res) { // all users
@@ -15,7 +15,7 @@ module.exports = {
             })
     },
 
-    findUsers: function (req, res) {  // user search
+    buscarUsuarios: function (req, res) {  // user search
         DB
             .Usuario
             .findAll(
@@ -33,7 +33,7 @@ module.exports = {
                 }
             )
             .then(function(results) {
-                return res.render('users/index', {
+                return res.render('usuarios/index', {
                     resultados : resultados, 
                     IdUsuarios : resultados.IdUsuarios,
                     NombreDeUsuario : resultados.NombreDeUsuario,
@@ -46,7 +46,7 @@ module.exports = {
             })
     },
 
-    userDetailByUsername: function(req, res) { // user profile and reviews
+    detalleDeUsuarioPorNombre: function(req, res) { // user profile and reviews
         DB
             .Usuario
             .findOne(

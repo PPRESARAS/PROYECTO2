@@ -1,4 +1,4 @@
-const User = require('./usuario.js')
+var User = require('./usuario.js')
 
 module.exports = function (sequelize, DataTypes) {
     const resenia = sequelize.define(

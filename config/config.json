@@ -2,11 +2,12 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "movies_db_2020",
+    "database": "SHOWTIME",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
   },
+
   "test": {
     "username": "root",
     "password": null,
