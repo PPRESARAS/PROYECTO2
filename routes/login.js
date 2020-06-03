@@ -5,9 +5,9 @@ const controller = require('../controllers/loginController');
 
 // router.get(‘/‘, usersController.search);
 
-Router.get(‘/reviews’, user controller.confirmUser);
+router.get('/', controller.confirmUser);
 
-Router.post('/reviews', usersController.confrimUser);
+router.post('/', controller.logUser);
 
 // router.get('/reviews/:id', usersController.get.Reviews);
 
