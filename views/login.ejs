@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="stylesheets/uikit.min.css">
+   
+    <script src="/javascripts/uikit-icons.min.js" ></script>
+    <script src="/javascripts/uikit.min.js" ></script>
+    <script src="/javascripts/uikit-icons.min.js" ></script>
+    <script src="/javascripts/uikit.js" ></script>
+
+    <link rel="stylesheet" href="/stylesheets/favoritos.css">
+    <link rel="stylesheet" href="https://use.fontawsesome.com/releases/v5.9.0,css/all.css" 
+    integrity="sha384-i1LQnF23gyKqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E"
+    crossorigin="anonymous"
+
+  </head>
+
+  <body>
+<!-- Header -->
+
+<%- include('partials/header')%>
+<div class="uk-container" >
+    <div class="uk-section uk-section-large " >
+
+<% if (tipo== "delete") { %>
+    <form id="formlogin" method="POST" class="uk-background-secondary uk-padding uk-padding-large" action="/users/reviews/delete/<%= deleteId" %>
+        <h1 style="color: azure;"> Delete </h1>
+            <p> Confirm user to erase a review </p>
+            <div class="uk-margin">
+                <div class="uk-inline uk-width-2-3">
+                    <span class="uk-form-icon" uk-icon="icon: mail"> </span>
+                    <input class="uk-input" type="text" id="email" name="email" placeholder="email...">
+
+                </div>
+            </div>
+            <div class="uk-margin">
+                <div class="uk-inline uk-width-2-3">
+                    <span class="uk-form-icon" uk-icon="icon: pencil"> </span>
+                    <input class="uk-input" type="password" id="pass" name="password" placeholder="password...">
+                </div>  
+                </div>
+
+<button type="submit" name="button">Confirm</button>
+
+            </form>
+
+
+    <% } else{ %>
+        <form id="formlogin" method="POST" class="uk-background-secondary uk-padding uk-padding-large" action="/users/reviews">
+            <h1 style="color: azure;"> Login </h1>
+
+                <div class="uk-margin">
+                    <div class="uk-inline uk-width-2-3">
+                        <span class="uk-form-icon" uk-icon="icon: mail"> </span>
+                        <input class="uk-input" type="text" id="email" name="email" placeholder="email...">
+    
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <div class="uk-inline uk-width-2-3">
+                        <span class="uk-form-icon" uk-icon="icon: pencil"> </span>
+                        <input class="uk-input" type="password" id="pass" name="password" placeholder="password...">
+                    </div>  
+                    </div>
+    
+</body>

@@ -1,3 +1,5 @@
+/* Modulo login descargado de playground */
+
 let db = require('./database/models')
 
 let moduloLogin = {
@@ -15,7 +17,7 @@ let moduloLogin = {
     buscarPorEmail: function (email){
         return db.Usuario.findOne({
             where: {
-                email:email
+                email:email 
             }
         })
         .then(resultado=> {

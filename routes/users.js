@@ -11,3 +11,4 @@ router.get('/search', controller.findUsers);
 router.get('/:username', controller.userDetailByUsername);
 
 module.exports = router;
+
