@@ -1,6 +1,6 @@
 let DB = require('../database/models');
 let Op = DB.Sequelize.Op;
-let { Resenia } = require('../database/models');
+let resenias = require('../database/models');
 
 module.exports = {
     index: function(req, res) { // todos los usuarios

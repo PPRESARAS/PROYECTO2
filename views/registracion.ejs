@@ -14,7 +14,22 @@
 </style>
 <body class="bg-gray-300 flex flex-col h-screen justify-between">
     
-    <%= include('./partials/header.ejs')%>
+    <header class="cabecera">
+        <ul class="headerul">
+          <a src="logotipo" href="/views/index.ejs"> <img  src="/images/logo.png" alt="logotipo" class="logo"> </a>
+    
+          <div class="uk-inline boundary botones">
+            <button class="uk-button uk-button-default botonlindo" type="button">Menu</button>
+              <div uk-dropdown="pos: left-top" style="position:fixed;">
+                <ul class="uk-nav uk-dropdown-nav">
+                    <li class="uk-active miLi"><a href="/login">Log-in</a></li>
+                    <li miLi><a href="/registracion" >Registrarse</a></li>
+                    <li class="uk-nav-divider miLi"><a href="/login">Mi Perfil</a></li>
+                </ul>
+              </div>
+          </div>
+        </ul>
+      </header>
         
     <div class="w-full">
         <div class="w-full max-w-xs mx-auto my-12">
@@ -88,7 +103,19 @@
         </div>
     </div>
 
-    <%= include('./partials/footer.ejs')%>
+    <footer  class="Piedepagina">
+        <ul class="grupo">
+          <li>
+            <h2 class="nombre">Pedro Presaras</h2>
+          </li>
+          <li>
+            <h2 class="nombre" >Alejo Gonzalez Medina</h2>
+           </li>
+        </ul>
+        <div class="logoTmdb">
+          <img src="/images/logodb.png"  href="#top" uk-scroll alt="">
+        </div>
+      </footer>
 
 <script src="datepicker.min.js"></script> 
 </body>

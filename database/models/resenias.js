@@ -1,46 +1,41 @@
-var User = require('./usuario.js')
+var Usuario = require('./Usuario.js')
 
 module.exports = function (sequelize, DataTypes) {
     const resenia = sequelize.define(
         'Resenia',
         {
-            id: {
-                type: DataTypes.INTEGER(11).UNSIGNED,
+            IdResenias: {
+                type: DataTypes.INTEGER(50).UNSIGNED,
                 primaryKey: true,
                 autoincrement: true,
             },
-            series_id: {
-                type: DataTypes.INTEGER,
+            IdPelicula: {
+                type: DataTypes.VARCHAR(45),
             },
-            user_id: {
+            IdUsuario: {
                 type: DataTypes.INTEGER(11).UNSIGNED,
                 allowNull: false,
-                // references: {
-                //     model: 'user',
-                //     key: 'id',
-                // },
             },
-            series_review: {
+            TextoResenia: {
                 type: DataTypes.STRING(500),
                 allowNull: true,
             },
-            rating: { 
-                type: DataTypes.INTEGER.UNSIGNED,
+            Puntaje: { 
+                type: DataTypes.DECIMAL,
             },
-            createdAt: 
-            { 
-                type: DataTypes.DATEONLY, 
+            FechaCreacion: { 
+                type: DataTypes.DATE, 
                 defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
             },
-            updatedAt: { 
+            FechaActualizacion: { 
                 type: DataTypes.DATEONLY, 
                 defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
             }
         },
         {
-            tableName: 'resenias',
+            tableName: 'Resenias',
             timestamps: true // columnas de created y updated
         }
     );
-    return resenia;
+    return Resenia;
 }

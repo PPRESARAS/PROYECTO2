@@ -1,48 +1,42 @@
-var Review = require('./resenias.js')
+var resenia = require('./resenias.js')
 
 module.exports = function (sequelize, DataTypes) {
     // const bcrypt = require("bcryptjs");
 
-    let user = sequelize.define(
-        'User',
+    let usuario = sequelize.define(
+        'Usuario',
         {
-            id: {
+            IdUsuarios: {
                 type: DataTypes.INTEGER(11).UNSIGNED,
                 primaryKey: true,
                 autoIncrement: true,
             },
-            username: { 
-                type: DataTypes.STRING, 
-                primaryKey: true, 
+            NombreDeUsuario: { 
+                type: DataTypes.VARCHAR(45), 
                 autoincrement: true, 
                 unique: true,
             }, 
-            email: { 
-                type: DataTypes.STRING(255), 
+            EmailDeUsuario: { 
+                type: DataTypes.VARCHAR(45), 
                 allowNull: false,
                 unique: true,
             },
-            password: {
-                type: DataTypes.CHAR(255),
+            ContraseniaDeUsuario: {
+                type: DataTypes.VARCHAR(80),
                 allowNull: false,
                 defaultValue: "",
             },
-            birthdate: {
+            FechaDeNacimiento: {
                 type: DataTypes.DATE,
                 allowNull: false,
                 defaultValue: DataTypes.NOW,
             },
-            favorite_genre: {
-                type: DataTypes.STRING(255),
-                allowNull: true,
-                defaultValue: "Drama",
-            },
         },
         {
-            tableName: 'users',
+            tableName: 'Usuarios',
             timestamps: false,
         }
     );
 
-    return user;
+    return Usuario;
 }
