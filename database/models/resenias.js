@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 var Usuario = require('./Usuario.js')
+=======
+// var User = require('./usuario.js')
+>>>>>>> master
 
 module.exports = function (sequelize, DataTypes) {
     const resenia = sequelize.define(
