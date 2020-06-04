@@ -3,37 +3,37 @@
 let db = require('./database/models')
 
 let moduloLogin = {
-    chequearUsuario: function (email) {
-        return db.Usuario.findOne({
+    chequearUsuario: function (EmailDeUsuario) {
+        return db.Usuarios.findOne({
             where: {
-                email: email
+                EmailDeUsuario: EmailDeUsuario
             }
         })
-        .then(function(usuario) {
-            return usuario != null;
+        .then(function(Usuarios) {
+            return Usuarios != null;
         })
     },
 
-    buscarPorEmail: function (email){
-        return db.Usuario.findOne({
+    buscarPorEmail: function (EmailDeUsuario){
+        return db.Usuarios.findOne({
             where: {
-                email:email 
+                EmailDeUsuario:EmailDeUsuario 
             }
         })
-        .then(resultado=> {
-            return resultado
+        .then(resultados => {
+            return resultados
         })
     },
 
-    validar: function (email, pass) {
+    validar: function (EmailDeUsuario, ContraseniaDeUsuario) {
         return db.Usuario.findOne({
             where:{
-                email:email,
-                password: pass
+                EmailDeUsuario: EmailDeUsuario,
+                ContraseniaDeUsuario: ContraseniaDeUsuario,
             },
         })
-        .then(results=>{
-            return results;
+        .then(resultados=>{
+            return resultados;
         })
     }
 }
