@@ -14,7 +14,7 @@ let registracionController = {
             EmailDeUsuario: req.body.EmailDeUsuario,
             ContraseniaDeUsuario: req.body.ContraseniaDeUsuario,
         }
-        db.Usuarios.create(Usuario)
+        db.Usuario.create(Usuario)
             res.redirect("/login")
         .then(() => {
             res.send("USUARIO CREADO")

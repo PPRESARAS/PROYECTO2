@@ -3,6 +3,11 @@ background-color: #081C24;
 width: 100%;
 height: 100%;
 }
+.bodyLogin{
+  background-color: #081C24;
+  width: 100%;
+  height: 100%;
+}
 /*cabezera*/
 
 .cabecera {
@@ -162,14 +167,15 @@ text-align: center;
 
 /*footer*/
 .Piedepagina{
+  margin-top: -29px;
   display: flex;
   flex-direction: row;
   border-top: 1px solid gainsboro;
-text-align: center;
-height: 200px;
-background-color: white;
-}
+  text-align: center;
+  height: 200px;
+  background-color: white;
 
+}
 
 .grupo {
 margin-top: 2%;
@@ -211,10 +217,18 @@ justify-content: space-between;
 
 .formulario{
   width: 100%;
-  height: 100%;
+  height: 85%;
   position: relative;
   top: 241px;
   left: 560px;
+  font-size: 28px;
+}
+.formularioLogin{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 241px;
+  left: 540px;
   font-size: 28px;
 }
 .form-group{

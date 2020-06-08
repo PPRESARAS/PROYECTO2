@@ -1,32 +1,19 @@
 let db = require('../database/models');
+let modulologin = require('../modulo-login');
 let Op =db.Sequelize.Op ;
+let usuarioController = require('../controllers/usuarioController');
 
-
-let moduloLogin = {
-    logUser: (req, res) => {
-        res.render('login') 
+let controller = {
+    login: function (req, res) {
+        res.render('login')
     },
-
-    validar:(req, res)=>{        
-      return  db.Usuario.findAll({
-            where:{
-                EmailDeUsuario: req.body.EmailDeUsuario,
-            }
-        },
-        )},
-
-       buscarPorEmail: function (req, res){
-        return db.Usuarios.findAll({
-            where: {
-                EmailDeUsuario:EmailDeUsuario
-            }
-        })
-        .then(resultados => {
-            return resultados
+    loginPost: function(req, res) {
+        modulologin.validar(req.body.EmailDeUsuario, req.body.ContraseniaDeUsuario)
+        .then (resultado =>{
+            console.log(resultado)
         })
     },
 
 }
 
-
-module.exports = moduloLogin;
+module.exports = controller;

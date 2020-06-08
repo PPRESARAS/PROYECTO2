@@ -2,7 +2,7 @@ let db = require("../db/models/index");
 let operadores = db.Sequelize.Op;
 
 let reseniasController = {
-    listado: function(req, res) {
+    listado: (req, res) => {
         db.Resenias.findAll({
             include:[{
                 model: Usuario,
@@ -19,7 +19,7 @@ let reseniasController = {
         })
     },
     
-    best: function(req, res) {
+    best: (req, res) => {
         db.Resenias.findAll(
             {
                 where: [

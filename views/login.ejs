@@ -13,7 +13,7 @@
 <script src="https://kit.fontawesome.com/0fb732c451.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="bodyLogin">
 
 <div class="container">
 
@@ -41,28 +41,28 @@
   <div class="formularioLogin">
     <form action="/login" method="post" class="form-horizontal">
     <div class="form-group">
-        <label for="EmailDeUsuario" class="control-label col-sm-2">
+        <label for="EmailDeUsuario" class="control-label col-sm-2" style="color: red">
             EMAIL DE USUARIO: <span style="color:red">*</span>
-        </label>
+        </label> <br>
         <input  class="form-group" type="email" id="EmailDeUsuario" name="EmailDeUsuario" style="color: black;" required>
     </div>
     <div class="form-group">
-        <label for="ContraseniaDeUsuario" class="control-label col-sm-2">
-            CONTRSEÑA DE USUARIO: <span style="color:red">*</span>
-        </label>
+        <label for="ContraseniaDeUsuario" class="control-label col-sm-2" style="color: red">
+            CONTRASEÑA DE USUARIO: <span style="color:red">*</span>
+        </label><br>
         <input class="form-group" type="password" id="ContrseniaDeUsuario" name="ContraseniaDeUsuario" style="color: black;" required>
     </div>
-    <div class="boton">
-        <button type="submit">
+    <div class="col-sm-offset-2 col-sm-10" class="btn btn-default" style="margin: 8px; border-radius: 9px;">
+        <button type="submit"    style="margin-left: 125px;" >
             LOGIN
         </button>
     </div>
-    <div class="botonesAbajo">
-        <a href="https://www.youtube.com/watch?v=CAHvHWaGbs0">
-        ¿HAS OLVIDADO TU CONTRASEÑA?
+    <div class="botonesAbajo" style="font-size: 12px;">
+        <a href="https://www.youtube.com/watch?v=CAHvHWaGbs0" >
+          ¿HAS OLVIDADO TU CONTRASEÑA?
         </a>
-        <a href="/registracion">
-        REGISTRARSE
+        <a href="/registracion" style="margin-left: 40px;">
+          REGISTRARSE
         </a>
     </div>
     </form> 
@@ -70,7 +70,7 @@
 
 
 
-<footer  class="Piedepagina">
+<footer  class="Piedepagina" style="margin-top: 300px;">
     <ul class="grupo">
       <li>
         <h2 class="nombre">Pedro Presaras</h2>

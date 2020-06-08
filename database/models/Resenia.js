@@ -1,34 +1,34 @@
 module.exports = (sequelize, DataTypes) => {
-    let alias = "Resenias";
+    let alias = "Resenia";
     let cols = {
         IdResenias: {
-            type: DataTypes.INTEGER(50).UNSIGNED,
+            type: DataTypes.INTEGER,
             primaryKey: true,
-            autoIncrement: true,
             allowNull: false
         },
         IdPelicula: { 
             type: DataTypes.INTEGER, 
+            allowNull: false
         },
         IdUsuario: { 
-            type: DataTypes.INTEGER(11).UNSIGNED,
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
         TextoResenia: {
-            type: DataTypes.STRING(250),
+            type: DataTypes.STRING,
             allowNull: true,
         },
         Puntaje: { 
-            type: DataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
-        FechaCreacion: 
-        { 
+        FechaCreacion: { 
             type: DataTypes.DATE, 
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+            allowNull: false
         },
         FechaActualizacion: { 
             type: DataTypes.DATE, 
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+            allowNull: false
         }
 
     };
@@ -38,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
         timeStamps = false
     }
 
-    let Resenias = sequelize.define(alias, cols, config);
+    let Resenia = sequelize.define(alias, cols, config);
 
-    return Resenias;
+    return Resenia;
 }
