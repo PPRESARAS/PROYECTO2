@@ -15,6 +15,7 @@ var detallesRouter = require('./routes/detalles');
 
 
 
+
 var app = express();
 
 
@@ -34,6 +35,7 @@ app.use('/index', indexRouter2);
 app.use('/users', usersRouter);
 app.use('/genero', generoRouter);
 app.use('/detalles', detallesRouter);
+
 
 
 

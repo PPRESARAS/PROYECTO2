@@ -1,6 +1,7 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHOWTIME</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
@@ -11,9 +12,11 @@
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
 <script src="https://kit.fontawesome.com/0fb732c451.js" crossorigin="anonymous"></script>
 </head>
-</head>
 
 <body>
+
+<div class="container">
+
   <header class="cabecera">
     <ul class="headerul">
       <a src="logotipo" href="/index"> <img  src="/images/logo.png" alt="logotipo" class="logo"> </a>
@@ -33,63 +36,57 @@
         </div>
     </div>
     </ul>
-</header>
+  </header>
 
-
-<body>
-  
-  <form action="/registracion" method="POST" class="formulario">
+  <div class="formularioLogin">
+    <form action="/login" method="post">
     <div class="campo">
-    <label for="NombreDeUsuario">
-      NOMBRE DE USUARIO: <span>*</span>
-    </label>
-    <input type="text" id="NombreDeUsuario" name="NombreDeUsuario" required>
+        <label for="EmailDeUsuario">
+            EMAIL DE USUARIO: <span>*</span>
+        </label>
+        <input type="email" id="EmailDeUsuario" name="EmailDeUsuario" required>
     </div>
     <div class="campo">
-      <label for="EmailDeUsuario">
-        EMAIL DE USUARIO: <span>*</span>
-      </label>
-      <input type="email" id="EmailDeUsuario" name="EmailDeUsario" required>
+        <label for="ContraseniaDeUsuario">
+            CONTRSEÑA DE USUARIO: <span>*</span>
+        </label>
+        <input type="password" id="ContrseniaDeUsuario" name="ContraseniaDeUsuario" required>
     </div>
-    <div class="campo">
-      <label for="ContraseniaDeUsuario">
-        CONTRASEÑA: <span>*</span>
-      </label>
-      <input type="password" id="ContraseniaDeUsuario" name="ContraseniaDeUsuario" required>
+    <div class="boton">
+        <button type="submit">
+            LOGIN
+        </button>
     </div>
-    <div class="campo">
-      <label for="FechaDeNacimiento">
-        FECHA DE NACIMIENTO:
-      </label>
-      <input type="date" id="FechaDeNacimiento" name="FechaDeNacimiento">
+    <div class="botonesAbajo">
+        <a href="https://www.youtube.com/watch?v=CAHvHWaGbs0">
+        ¿HAS OLVIDADO TU CONTRASEÑA?
+        </a>
+        <a href="/registracion">
+        REGISTRARSE
+        </a>
     </div>
-    <div class="botones">
-      <button type="submit">
-        REGISTRAR
-      </button>
-      <a href="/login.ejs">Login</a>
-    </div>
-  </form>
-
-</body>
-
-<footer  class="Piedepagina">
-        <ul class="grupo">
-          <li>
-            <h2 class="nombre">Pedro Presaras</h2>
-          </li>
-          <li>
-            <h2 class="nombre" >Alejo Gonzalez Medina</h2>
-           </li>
-        </ul>
+    </form> 
+  </div>
 
 
-      <div class="logoTmdb">
-        <img src="/images/logodb.png" alt=""    href="#top" uk-scroll>
-      </div>
+
+  <footer  class="Piedepagina">
+    <ul class="grupo">
+      <li>
+        <h2 class="nombre">Pedro Presaras</h2>
+      </li>
+      <li>
+        <h2 class="nombre" >Alejo Gonzalez Medina</h2>
+       </li>
+    </ul>
 
 
-    </footer>
+  <div class="logoTmdb">
+    <img src="/images/logodb.png" alt=""    href="#top" uk-scroll>
+  </div>
+
+
+</footer>
 
 </body>
 </html>

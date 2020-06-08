@@ -18,7 +18,7 @@ let moduloLogin = {
                 email:email
             }
         })
-        .then(resultado=> {
+        .then(resultado => {
             return resultado
         })
     },
