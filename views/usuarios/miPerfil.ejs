@@ -29,41 +29,32 @@
     </div>
     </ul>
   </header>
-   <div>
-        <div>
-            <h1>
-                NombreDeUsuario 
-            </h1>
-        </div>
-        <div>
+   
+<h1>
+  PERFIL DE: <% Usuario.NombreDeUsuario %>
+</h1>
+<ul>
+  <li>
+    EMAIL: <%= Usuario.EmailDeUsuario %>
+  </li>
+  <li>
+    FECHA DE NACIMIENTO: <%= Usuario.FechaDeNacimiento %>
+  </li>
+</ul>
+<h1>
+  SUS RESEÑAS:
+</h1><br>
+<% if(Resenias.length == 0){ %>
+  <p>¡NO TIENES NINGUNA RESEÑA AUN!</p>
+<%}%>
+  else{
+    <% for (let i=0; i < Resenias.length; i++) { %>
+      <h2>RESEÑA DE LA PELICULA <%= reviews[i].IdPelicula %></h2>
+      <p> <%= Resenias[i].TextoResenia %></p>
+    <% } %>
+  <% } %>
 
-                EmailDeUsuario
 
-        </div>
-        <div>
-
-              Fecha De Nacimiento <br>
-               moment(FechaDeNacimiento).format('Do MMM YYYY')
-        </div>
-   </div>
-  if (Resenia.length == 0) {
-      <div> ¡NO HAS HECHO NINGUNA RESEÑA AUN!</div>
-  }
- for (let i=0; i < Resenia.length; i++) { 
-  <div class="title">
-
-  </div>
-  <div class="overview">
-    PUNTAJE:
-  </div>
-  <div class="generos">
-
-  </div>
-  <div >
-    (Resenia[i].TextoResenia) 
- </div>
-
-} 
  <footer  class="Piedepagina">
   <ul class="grupo">
     <li>

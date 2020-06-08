@@ -29,7 +29,7 @@ module.exports = {
     detalleDeUsuarioPorNombre: (req, res) =>{
         db.Usuario.findAll({
             where: {
-                NombreDeUsuario: req.params.NombreDeUsuario,
+                NombreDeUsuario: req.body.NombreDeUsuario,
             }
         })
         .then(function(resultados) {
