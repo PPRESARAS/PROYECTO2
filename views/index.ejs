@@ -17,27 +17,26 @@
 
 <div class="container">
 
-    <header class="cabecera">
-      <ul class="headerul">
-        <a src="logotipo" href="/views/index.ejs"> <img  src="/images/logo.png" alt="logotipo" class="logo"> </a>
-        <form class="buscadorheader" action="/views/searchbar.ejs" method="get">
-          <div class="form-groupSearch">
-            <input type="search" class="form-control" name="search" placeholder="  Buscar" >
-          </div>
-        </form>
-
-        <div class="uk-inline boundary botones">
-          <button class="uk-button uk-button-default botonlindo" type="button">Menu</button>
-            <div uk-dropdown="pos: left-top" style="position:fixed;">
-              <ul class="uk-nav uk-dropdown-nav">
-                  <li class="uk-active miLi"><a href="buscar.ejs">Filtros</a></li>
-                  <li miLi><a "uk-button uk-button-default" href="listado.ejs" id="generos">Generos</a>
-                  <li class="uk-nav-divider miLi"></li>
-              </ul>
-            </div>
+  <header class="cabecera">
+    <ul class="headerul">
+      <a src="logotipo" href="/index"> <img  src="/images/logo.png" alt="logotipo" class="logo"> </a>
+      <form class="buscadorheader" action="/usuarios/miPerfil" method="GET">
+        <div class="form-groupSearch">
+          <input type="search" class="form-control" name="search" placeholder="  BUSCAR USUARIO...">
+      </div>
+    </form>
+    <div class="uk-inline boundary botones">
+      <button class="uk-button uk-button-default botonlindo" type="button">MENU</button>
+        <div uk-dropdown="pos: left-top" style="position:fixed;">
+          <ul class="uk-nav uk-dropdown-nav">
+            <li class="uk-active miLi"><a href="login.ejs">LOGIN</a></li>
+            <li class="uk-active miLi"><a href="registracion.ejs">REGISTRARSE</a></li> 
+            <li class="uk-active miLi"><a href="login.ejs">MI PERFIL</a></li>
+          </ul>
         </div>
-      </ul>
-  	</header>
+    </div>
+    </ul>
+  </header>
     <main>
       <section class= "series">
         <div class="titulo">
@@ -126,7 +125,7 @@ fetch("https://api.themoviedb.org/3/tv/top_rated?api_key=8eaabce657eccc6be932f97
 
       var contenidoParaInsertar = '<li class="uk-transition-toggle unidad">'
       contenidoParaInsertar += '<img src="'+posterURL+ myJson.results[i].poster_path+'" alt="" class="poster uk-transition-scale-up">'
-      contenidoParaInsertar += '<div class="uk-position-center uk-panel contenedora"><a href="detalles.html?id='+ myJson.results[i].id+'" class="link uk-transition-scale-up">'+myJson.results[i].name +'</a></div>'
+      contenidoParaInsertar += '<div class="uk-position-center uk-panel contenedora"><a href="/detalles?id='+ myJson.results[i].id+'" class="link uk-transition-scale-up">'+myJson.results[i].name +'</a></div>'
       contenidoParaInsertar += '</li>'
 
       elementoHTML.innerHTML += contenidoParaInsertar
@@ -157,7 +156,7 @@ fetch("https://api.themoviedb.org/3/tv/top_rated?api_key=8eaabce657eccc6be932f97
       var elementoHTML = document.querySelector('.populares')
       var insertar = '<li class="uk-transition-toggle unidad">'
       insertar += '<img src="'+posterURL+ myJson.results[i].poster_path+'" alt="" class="poster uk-transition-scale-up"</a>' //quiero que con cada genero me tire una foto que lo represente
-      insertar += '<div class="uk-position-center uk-panel contenedora"> <a href="detalles.html?id='+ myJson.results[i].id+'" class="uk-transition-scale-up">'+myJson.results[i].name +'</a> </div>'
+      insertar += '<div class="uk-position-center uk-panel contenedora"> <a href="/detalles?id='+ myJson.results[i].id+'" class="uk-transition-scale-up">'+myJson.results[i].name +'</a> </div>'
       insertar += '</li>'
 
       elementoHTML.innerHTML += insertar
@@ -179,7 +178,7 @@ fetch("https://api.themoviedb.org/3/tv/top_rated?api_key=8eaabce657eccc6be932f97
         var elementoHTML = document.querySelector('.aire')
         var insertar2 = '<li class="uk-transition-toggle unidad">'
         insertar2 += '<img src="'+posterURL+ myJson.results[i].poster_path+'" alt="" class="poster uk-transition-scale-up"</a>'
-        insertar2 += '<div class="uk-position-center uk-panel contenedora"> <a href="detalles.html?id='+ myJson.results[i].id+'" class="uk-transition-scale-up">'+myJson.results[i].name +'</a></div>'
+        insertar2 += '<div class="uk-position-center uk-panel contenedora"> <a href="/detalles?id='+ myJson.results[i].id+'" class="uk-transition-scale-up">'+myJson.results[i].name +'</a></div>'
         insertar2 += '</li>'
 
         elementoHTML.innerHTML += insertar2

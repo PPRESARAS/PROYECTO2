@@ -15,31 +15,29 @@
 
 <body>
 
-<div class="container">
-
+  <div class="container">
     <header class="cabecera">
       <ul class="headerul">
-        <a src="logotipo" href="/views/index.ejs"> <img  src="/images/logo.png" alt="logotipo" class="logo"> </a>
-        <form class="buscadorheader" action="/views/searchbar.ejs" method="get">
+        <a src="logotipo" href="/index"> <img  src="/images/logo.png" alt="logotipo" class="logo"> </a>
+        <form class="buscadorheader" action="/usuarios/search" method="GET">
           <div class="form-groupSearch">
-            <input type="search" class="form-control" name="search" placeholder="  Buscar" >
+            <input type="search" class="form-control" name="search" placeholder="  BUSCAR USUARIO...">
           </div>
         </form>
-
-        <div class="uk-inline boundary botones">
+        <nav class="uk-inline boundary botones">
           <button class="uk-button uk-button-default botonlindo" type="button">Menu</button>
-            <div uk-dropdown="pos: left-top" style="position:fixed;">
+            <div uk-dropdown="pos: left-top" style="position: fixed;">
               <ul class="uk-nav uk-dropdown-nav">
-                  <li class="uk-active miLi"><a href="buscar.ejs">Filtros</a></li>
-                  <li miLi><a "uk-button uk-button-default" href="listado.ejs" id="generos">Generos</a>
-                  <li class="uk-nav-divider miLi"></li>
+                  <li class="uk-active miLi"><a href="/login">LOGIN</a></li>
+                  <li class="uk-active miLi"><a href="/registracion" >REGISTRARSE</a></li>
+                  <li class="uk-active miLi"><a href="/login">MI PERFIL</a></li>
               </ul>
             </div>
-        </div>
+          </nav>
       </ul>
-  	</header>
-  </div>
-
+    </header>  
+  </div>     
+  
 
   <div class="columna">
     <p class="pagina">Detalles de las Series</p>
@@ -81,23 +79,126 @@
       </div>
       </div>
       </div>
-  </div>
+ 
 
 <footer  class="Piedepagina">
-  <ul class="grupo">
-    <li>
-      <h2 class="nombre">Pedro Presaras</h2>
-    </li>
-    <li>
-      <h2 class="nombre" >Alejo Gonzalez Medina</h2>
-     </li>
+    <ul class="grupo">
+      <li>
+        <h2 class="nombre">Pedro Presaras</h2>
+      </li>
+      <li>
+        <h2 class="nombre" >Alejo Gonzalez Medina</h2>
+       </li>
     </ul>
-
     <div class="logoTmdb">
-      <img src="/PROYECTO2/public/images/logodb.png"  href="#top" uk-scroll alt="">
+      <img src="/images/logodb.png"  href="#top" uk-scroll alt="">
     </div>
 </footer>
-
-  <script src="/public/javascripts/detalles.js"></script>
 </body>
 </html>
+
+<script src="../public/javascripts/detalles.js"></script>
+<script>
+  var queryString = location.search;
+// capturamos la queryString del navegador , la variable guarda lo que dice el buscadorheader
+var searchParams= new URLSearchParams(queryString) // captura las diferentes partes del searchbar en este caso pido que me busque algo del location
+
+var id = searchParams.get ("id")
+//de todas las partes que agarro agarra el id
+
+var urlSerie= "https://api.themoviedb.org/3/tv/"+ id+ "?api_key=8eaabce657eccc6be932f97172c1a728&language=en-US"
+
+fetch(urlSerie)
+  .then(function(response) {
+    return response.json();
+  })   
+  .then(function(myJson){
+    var posterURL = 'https://image.tmdb.org/t/p/original'
+
+    console.log(myJson);
+    console.log( myJson.original_language)
+
+    var poster = document.querySelector('.imagenPeli');
+    poster.src = posterURL + myJson.poster_path;
+
+    var title = document.querySelector('.title');
+    title.innerText = myJson.original_name;
+
+    var lenguaje = document.querySelector('.lenguaje')
+    lenguaje.innerHTML += myJson.original_language
+
+    var overview = document.querySelector ('.overview')
+    overview.innerHTML += myJson.overview
+
+    var generos = document.querySelector('.generos');
+    for (var i = 0; i < myJson.genres.length; i++) {
+      generos.innerHTML += '<a href="/genero?id='+myJson.genres[i].id+'&nombre='+myJson.genres[i].name+'& id="generos" class="genero">'+myJson.genres[i].name+'</a>' + ' '
+    }
+
+
+  });
+
+
+
+  var urlTrailer= "https://api.themoviedb.org/3/tv/"+id+"/videos?api_key=8eaabce657eccc6be932f97172c1a728&language=en-US"
+
+  fetch(urlTrailer)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(myJson){
+      console.log(myJson.results[0].key);
+
+      var elementoHTML = document.querySelector('.trailer')
+          var contenidoParaInsertar = '<p uk-margin> <a class="uk-button uk-button-default botonbueno" href="#modal-media'
+          contenidoParaInsertar += '-youtube" uk-toggle>Ver Trailer</a> </p>'
+          contenidoParaInsertar += '<div id="modal-media-youtube" class="uk-flex-top" uk-modal>'
+          contenidoParaInsertar += '<div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">'
+          contenidoParaInsertar += '<button class="uk-modal-close-outside" type="button" uk-close></button>'
+          contenidoParaInsertar +=  ' <iframe src="https://www.youtube-nocookie.com/embed/'+myJson.results[0].key+'" width="720" height="720" frameborder="0" uk-video></iframe> </div> </div>'
+
+          elementoHTML.innerHTML += contenidoParaInsertar
+      })
+/*<iframe src="https://www.youtube-nocookie.com/embed/c2pz2mlSfXA" width="1920" height="1080" frameborder="0" uk-video></iframe>*/
+  /*var contenidoParaInsertar =  '<iframe width="560" height="315" src="https://www.youtube.com/embed/'+myJson.results[0].key+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen  class="trailer"> </iframe>'*/
+
+
+  var relacionadas =(" https://api.themoviedb.org/3/tv/"+id+"/recommendations?api_key=8eaabce657eccc6be932f97172c1a728&language=en-US&page=1")
+
+  fetch(relacionadas)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(myJson) {
+      var poster = 'https://image.tmdb.org/t/p/original'
+      console.log(myJson);
+
+
+
+          for (var i = 0; i < myJson.results.length; i++){
+            var sarasa = poster + myJson.results[i].poster_path;
+            var posters = document.querySelector('.relacion');
+
+            var agregar = ''
+            agregar = '<li class="relacionSerie uk-transition-toggle">'
+            agregar += '<img class="poster uk-transition-scale-up" src="'+ sarasa+'" alt="">'
+            agregar +='<a href="/detalles?id='+ myJson.results[i].id+'" class="link uk-transition-scale-up">'+myJson.results[i].name +'</a>'
+            agregar += '</li>'
+
+            console.log(agregar, i);
+            posters.innerHTML +=  agregar
+
+          }
+
+
+
+
+    });
+
+
+  var recom = document.querySelector(".relacionadas");
+var btn = document.querySelector(".botonchoto");
+btn.onclick = function (){
+ recom.classList.toggle('show')
+}
+</script>

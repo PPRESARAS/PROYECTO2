@@ -1,10 +1,10 @@
-const express = require('express');
-const router = express.Router();
+var express = require('express');
+var router = express.Router();
 
-const controller = require('../controllers/registracionController');
+var controller = require('../controllers/registracionController');
 
-router.get('/', controller.index);
+router.get('/', controller.index); // guests
 
-router.post('/', controller.checkIfExists);
+router.post('/', controller.checkUsuario);
 
 module.exports = router;

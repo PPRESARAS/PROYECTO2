@@ -17,32 +17,28 @@
 
 <div class="container">
 
-    <header class="cabecera">
-      <ul class="headerul">
-        <a src="logotipo" href="/views/index.ejs"> <img  src="/images/logo.png" alt="logotipo" class="logo"> </a>
-        <form class="buscadorheader" action="/views/searchbar.ejs" method="get">
-          <div class="form-groupSearch">
-            <input type="search" class="form-control" name="search" placeholder="  Buscar" >
-          </div>
-        </form>
-
-        <div class="uk-inline boundary botones">
-          <button class="uk-button uk-button-default botonlindo" type="button">Menu</button>
-            <div uk-dropdown="pos: left-top" style="position:fixed;">
-              <ul class="uk-nav uk-dropdown-nav">
-                  <li class="uk-active miLi"><a href="buscar.ejs">Filtros</a></li>
-                  <li miLi><a "uk-button uk-button-default" href="listado.ejs" id="generos">Generos</a>
-                  <li class="uk-nav-divider miLi"></li>
-              </ul>
-            </div>
+  <header class="cabecera">
+    <ul class="headerul">
+      <a src="logotipo" href="/index"> <img  src="/images/logo.png" alt="logotipo" class="logo"> </a>
+      <form class="buscadorheader" action="/usuarios/search" method="GET">
+        <div class="form-groupSearch">
+          <input type="search" class="form-control" name="search" placeholder="  BUSCAR USUARIO...">
         </div>
-      </ul>
-  	</header>
-        <main>
-
-
-
-
+      </form>
+      <nav class="uk-inline boundary botones">
+        <button class="uk-button uk-button-default botonlindo" type="button">Menu</button>
+          <div uk-dropdown="pos: left-top" style="position: fixed;">
+            <ul class="uk-nav uk-dropdown-nav">
+                <li class="uk-active miLi"><a href="/login">LOGIN</a></li>
+                <li class="uk-active miLi"><a href="/registracion" >REGISTRARSE</a></li>
+                <li class="uk-active miLi"><a href="/login">MI PERFIL</a></li>
+            </ul>
+          </div>
+        </nav>
+    </ul>
+  </header>  
+  
+<main>
 <section class="seriesPorGeneros">
 
         <div class="tituloDelGenero">
@@ -57,26 +53,26 @@
         </div>
 </section>
 
-        <footer  class="Piedepagina">
-            <ul class="grupo">
-              <li>
-                <h2 class="nombre">Pedro Presaras</h2>
-              </li>
-              <li>
-                <h2 class="nombre" >Alejo Gonzalez Medina</h2>
-               </li>
-            </ul>
-          <div class="logoTmdb">
-              <img src="/images/logodb.png"  href="#top" uk-scroll alt="">
-          </div>
-
-
-        </footer>
+<footer  class="Piedepagina">
+  <ul class="grupo">
+    <li>
+      <h2 class="nombre">Pedro Presaras</h2>
+    </li>
+    <li>
+      <h2 class="nombre" >Alejo Gonzalez Medina</h2>
+     </li>
+  </ul>
+  <div class="logoTmdb">
+    <img src="/images/logodb.png"  href="#top" uk-scroll alt="">
+  </div>
+</footer>
 
 </body>
 </html>
 
+
 <script src="../public/javascripts/genero.js">
+
 </script>
 
 <script>
@@ -109,15 +105,15 @@ fetch(url)
       if(myJson.results[i].poster_path == null){
         var lifallo = ""
         lifallo += "<li class='unidad uk-transition-toggle'>"
-        lifallo += '<img class="poster uk-transition-scale-up" src="/PROYECTO2/public/images/mati.JPG" alt=""</a>'
-        lifallo += '<div class="contenedortitulo uk-transition-scale-up"> <a href="detalles.html?id='+datos.results[i].id+'" class="tituloserie">'+datos.results[i].name+'</a></div>'
+        lifallo += '<img class="poster uk-transition-scale-up" src="../public/images/mati.JPG" alt=""</a>'
+        lifallo += '<div class="contenedortitulo uk-transition-scale-up"> <a href="/detalles?id='+datos.results[i].id+'" class="tituloserie">'+datos.results[i].name+'</a></div>'
         lifallo += "</li>"
         destino.innerHTML += lifallo}
         else {
 
       var contenidoParaInsertar = '<li class="serie uk-transition-toggle">'
       contenidoParaInsertar += '<img class="poster uk-transition-scale-up" src="'+posterURL+ myJson.results[i].poster_path+'" alt="">'
-      contenidoParaInsertar += '<div class="tituloserie uk-transition-scale-up"><a class="titulo" href="detalles.html?id='+myJson.results[i].id+'">'+myJson.results[i].name +'</a></div>'
+      contenidoParaInsertar += '<div class="tituloserie uk-transition-scale-up"><a class="titulo" href="/detalles?id='+myJson.results[i].id+'">'+myJson.results[i].name +'</a></div>'
       contenidoParaInsertar += '</li>'
 }
       elementoHTML.innerHTML += contenidoParaInsertar

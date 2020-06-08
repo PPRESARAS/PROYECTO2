@@ -3,45 +3,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHOWTIME</title>
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
-    <link rel="stylesheet" href="datepicker.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
+<script src="https://kit.fontawesome.com/0fb732c451.js" crossorigin="anonymous"></script>
 </head>
-<style>
-    [x-cloak] {
-      display: none;
-    }
-</style>
-<body class="bg-gray-300 flex flex-col h-screen justify-between">
-    <header class="cabecera">
-        <ul class="headerul">
-          <a src="logotipo" href="/views/index.ejs"> <img  src="/images/logo.png" alt="logotipo" class="logo"> </a>
-          <form class="buscadorheader" action="/views/searchbar.ejs" method="get">
-            <div class="form-groupSearch">
-              <input type="search" class="form-control" name="search" placeholder="  Buscar" >
-            </div>
-          </form>
+</head>
+
+<body>
+  <header class="cabecera">
+    <ul class="headerul">
+      <a src="logotipo" href="/index"> <img  src="/images/logo.png" alt="logotipo" class="logo"> </a>
+      <form class="buscadorheader" action="/usuarios/miPerfil" method="GET">
+        <div class="form-groupSearch">
+          <input type="search" class="form-control" name="search" placeholder="  BUSCAR USUARIO...">
+      </div>
+    </form>
+    <div class="uk-inline boundary botones">
+      <button class="uk-button uk-button-default botonlindo" type="button">MENU</button>
+        <div uk-dropdown="pos: left-top" style="position:fixed;">
+          <ul class="uk-nav uk-dropdown-nav">
+            <li class="uk-active miLi"><a href="login.ejs">LOGIN</a></li>
+            <li class="uk-active miLi"><a href="registracion.ejs">REGISTRARSE</a></li> 
+            <li class="uk-active miLi"><a href="login.ejs">MI PERFIL</a></li>
+          </ul>
+        </div>
+    </div>
+    </ul>
+</header>
+
+
+<body>
   
-          <div class="uk-inline boundary botones">
-            <button class="uk-button uk-button-default botonlindo" type="button">Menu</button>
-              <div uk-dropdown="pos: left-top" style="position:fixed;">
-                <ul class="uk-nav uk-dropdown-nav">
-                    <li class="uk-active miLi"><a href="buscar.ejs">Filtros</a></li>
-                    <li miLi><a "uk-button uk-button-default" href="listado.ejs" id="generos">Generos</a>
-                    <li class="uk-nav-divider miLi"></li>
-                </ul>
-              </div>
-          </div>
-        </ul>
-        </header>
-    
+  <form action="/registracion" method="POST" class="formulario">
+    <label for="NombreDeUsuario">
+      NOMBRE DE USUARIO:
+    </label>
+  </form>
 
+</body>
 
-      <BODY>
-        
-      </BODY>
-
-    <footer  class="Piedepagina">
+<footer  class="Piedepagina">
         <ul class="grupo">
           <li>
             <h2 class="nombre">Pedro Presaras</h2>
@@ -59,6 +64,5 @@
 
     </footer>
 
-<script src="datepicker.min.js"></script> 
 </body>
 </html>
