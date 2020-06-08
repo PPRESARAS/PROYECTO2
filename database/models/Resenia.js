@@ -4,11 +4,11 @@ module.exports = (sequelize, DataTypes) => {
         IdResenias: {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            allowNull: false
+            allowNull: false,
         },
         IdPelicula: { 
             type: DataTypes.INTEGER, 
-            allowNull: false
+            allowNull: false,
         },
         IdUsuario: { 
             type: DataTypes.INTEGER,
@@ -20,22 +20,22 @@ module.exports = (sequelize, DataTypes) => {
         },
         Puntaje: { 
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
         },
         FechaCreacion: { 
             type: DataTypes.DATE, 
-            allowNull: false
+            allowNull: false,
         },
         FechaActualizacion: { 
             type: DataTypes.DATE, 
-            allowNull: false
+            allowNull: false,
         }
 
     };
 
     let config = {
-        tableName = "Resenias",
-        timeStamps = false
+        tableName : "Resenias",
+        timestamps : false
     }
 
     let Resenia = sequelize.define(alias, cols, config);

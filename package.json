@@ -3,13 +3,16 @@
   "version": "1.0.0",
   "description": "PROYECTO2",
   "main": "app.js",
-
   "dependencies": {
-    "mysql2": "^2.1.0",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "http-errors": "^1.7.3",
+    "morgan": "^1.10.0",
     "mysql": "^2.18.1",
-    "sequelize": "^5.21.10"
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.12"
   },
-
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

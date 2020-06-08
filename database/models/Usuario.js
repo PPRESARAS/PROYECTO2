@@ -1,4 +1,4 @@
-module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, DataTypes) => {
     let alias = "Usuario";
     let cols = {
         IdUsuarios: {
@@ -28,8 +28,8 @@ module.exports = (sequelize, dataTypes) => {
     };
 
     let config = {
-        tableName = 'Usuarios',
-        timeStamps = false
+        tableName : 'Usuarios',
+        timestamps : false
     }
 
     let Usuario = sequelize.define(alias, cols, config);
