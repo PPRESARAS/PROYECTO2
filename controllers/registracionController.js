@@ -5,7 +5,7 @@ let op = db.Sequelize.Op;
 
 let registracionController ={
     register: function(req, res) {
-        res.render("register");
+        res.render("registracion");
     },
 
     store: function(req, res) {

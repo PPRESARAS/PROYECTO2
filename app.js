@@ -10,6 +10,7 @@ var usersRouter = require('./routes/users');
 var generoRouter = require('./routes/genero');
 var detallesRouter = require('./routes/detalles');
 var registroRouter = require('./routes/registracion');
+var loginRouter =require('./routes/login');
 
 
 
@@ -32,6 +33,7 @@ app.use('/users', usersRouter);
 app.use('/genero', generoRouter);
 app.use('/detalles', detallesRouter);
 app.use('/registracion', registroRouter);
+app.use('/login', loginRouter);
 
 
 

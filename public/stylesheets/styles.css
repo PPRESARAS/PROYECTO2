@@ -209,6 +209,24 @@ width: 94%;
 justify-content: space-between;
 }
 
+.formulario{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 241px;
+  left: 560px;
+  font-size: 28px;
+}
+.form-group{
+  width: 47%;
+  color: white;
+}
+.calendario{
+  width: 320px;
+  text-align: center;
+}
+
+
 
 
 
