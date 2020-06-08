@@ -11,7 +11,7 @@ let reseniasController = {
         .then(function(resultados) {
             // ACA VA A IR LA CONSECUENCIA
             res.render("resenias", {
-                resenias: resenias
+                Resenias: Resenias
             })
         })
         .catch((errores) => {
@@ -20,7 +20,7 @@ let reseniasController = {
     },
     
     best: function(req, res) {
-        db.Resenia.findAll(
+        db.Resenias.findAll(
             {
                 where: [
                     { Puntaje: { [operadores.gte]: 8} }
@@ -45,7 +45,7 @@ let reseniasController = {
         db.Resenias.findAll()
         .then((resenia) => {
             res.render("nuevaResenia", {
-                IdResenia: req.body.IdResenia,
+                IdResenias: req.body.IdResenias,
                 errores : false,
                 EmailDeUsuario : false,
                 TextoResenia : false,
@@ -55,8 +55,8 @@ let reseniasController = {
         
     },
     store: function(req, res) {
-        let resenia = {
-            IdResenia: req.body.IdResenia,
+        let Resenias = {
+            IdResenias: req.body.IdResenias,
             IdUsuario: req.body.Usuario,
             IdPelicula: req.body.IdPelicula,
             TextoResenia: req.doby.TextoResenia,
@@ -66,14 +66,14 @@ let reseniasController = {
             
         }
 
-        let errores = validarResenia(resenia)
+        let errores = validarResenia(Resenias)
 
         if (errores.length > 0) {
             // Hubieron errores => Volver a mostrar la pagina con el form y los errores
-            db.Resenia.findAll()
-            .then((resenias) => {
+            db.Resenias.findAll()
+            .then((Resenias) => {
                 res.render("nuevaResenia", {
-                    IdResenia: req.body.IdResenia,
+                    IdResenias: req.body.IdResenias,
                     errors : false,
                     EmailDeUsuario : false,
                     TextoResenia : false,
@@ -83,7 +83,7 @@ let reseniasController = {
             })
         } else {
             // No hubieron errores, todo bien :)
-            db.Resenia.create(resenia)
+            db.Resenias.create(resenias)
             .then(() => {
                 res.redirect("/resenias")
             })
@@ -91,13 +91,13 @@ let reseniasController = {
     },
     editar: function(req, res){
         db.Resenias.findAll()
-        .then((resenias) => {
+        .then((Resenias) => {
 
             db.Resenias.findByPk(req.params.IdResenia)
             .then((resenia) => {
                 //Consecuencia final
                 res.render("editarResenia", {
-                    resenias : resenias
+                    Resenias : Resenias
                 })
             })
 

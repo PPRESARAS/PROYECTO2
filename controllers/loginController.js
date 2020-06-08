@@ -9,7 +9,7 @@ let moduloLogin = {
 },
 
     chequearUsuario: function (req, res) {
-        return db.Usuario.findOne({
+        return db.Usuarios.findOne({
             where: {
                 EmailDeUsuario: EmailDeUsuario
             }
@@ -20,7 +20,7 @@ let moduloLogin = {
     },
 
     buscarPorEmail: function (req, res){
-        return db.Usuario.findOne({
+        return db.Usuarios.findOne({
             where: {
                 EmailDeUsuario:EmailDeUsuario
             }
@@ -31,7 +31,7 @@ let moduloLogin = {
     },
 
     validar: function (req, res) {
-        return db.Usuario.findOne({
+        return db.Usuarios.findOne({
             where:{
                 EmailDeUsuario:EmailDeUsuario,
                 ContraseniaDeUsuario: ContraseniaDeUsuario

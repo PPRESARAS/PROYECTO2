@@ -9,13 +9,13 @@ let registracionController ={
     },
 
     store: function(req, res) {
-        let Usuario = {
+        let Usuarios = {
             NombreDeUsuario: req.body.NombreDeUsuario,
             EmailDeUsuario: req.body.EmailDeUsuario,
             ContraseniaDeUsuario: req.body.ContraseniaDeUsuario,
         }
 
-        db.Usuario.create(Usuario)
+        db.Usuarios.create(Usuarios)
         .then(() => {
             res.send("USUARIO CREADO")
         })
