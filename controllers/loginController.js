@@ -1,7 +1,14 @@
-let db = require('./database/models')
+let db = require('../database/models')
 
 let moduloLogin = {
-    chequearUsuario: function (EmailDeUsuario) {
+    logUser: function(req, res) {
+        return res.render('login', {
+            errores: false,
+            EmailDeUsuario: false,
+    });
+},
+
+    chequearUsuario: function (req, res) {
         return db.Usuario.findOne({
             where: {
                 EmailDeUsuario: EmailDeUsuario
@@ -12,7 +19,7 @@ let moduloLogin = {
         })
     },
 
-    buscarPorEmail: function (EmailDeUsuario){
+    buscarPorEmail: function (req, res){
         return db.Usuario.findOne({
             where: {
                 EmailDeUsuario:EmailDeUsuario
@@ -23,7 +30,7 @@ let moduloLogin = {
         })
     },
 
-    validar: function (EmailDeUsuario, ContraseniaDeUsuario) {
+    validar: function (req, res) {
         return db.Usuario.findOne({
             where:{
                 EmailDeUsuario:EmailDeUsuario,

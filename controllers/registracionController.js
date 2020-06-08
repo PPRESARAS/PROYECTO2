@@ -3,18 +3,24 @@ let op = db.Sequelize.Op;
 
 
 
-module.exports={
-    index: function(req, res) { 
-        return res.render('registracion', {
-            errores : {
-                NombreDeUsuario_error : false,
-                EmailDeUsuario_error : false,
-            },
-            NombreDeUsuario : false,
-            EmailDeUsuario : false,
-            FechaDeNacimiento : false,
-         });
+let registracionController ={
+    register: function(req, res) {
+        res.render("register");
     },
+
+    store: function(req, res) {
+        let Usuario = {
+            NombreDeUsuario: req.body.NombreDeUsuario,
+            EmailDeUsuario: req.body.EmailDeUsuario,
+            ContraseniaDeUsuario: req.body.ContraseniaDeUsuario,
+        }
+
+        db.Usuario.create(Usuario)
+        .then(() => {
+            res.send("USUARIO CREADO")
+        })
+    }
 
 
 }
+module.exports = registracionController;

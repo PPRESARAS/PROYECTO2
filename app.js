@@ -9,16 +9,12 @@ var indexRouter2 = require('./routes/index');
 var usersRouter = require('./routes/users');
 var generoRouter = require('./routes/genero');
 var detallesRouter = require('./routes/detalles');
-
-
-
+var registroRouter = require('./routes/registracion');
 
 
 
 
 var app = express();
-
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -35,10 +31,7 @@ app.use('/index', indexRouter2);
 app.use('/users', usersRouter);
 app.use('/genero', generoRouter);
 app.use('/detalles', detallesRouter);
-
-
-
-
+app.use('/registracion', registroRouter);
 
 
 

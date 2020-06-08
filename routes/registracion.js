@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
+let registro = require ('../controllers/registracionController');
 
-var controller = require('../controllers/registracionController');
+/* GET home page. */
 
-router.get('/', controller.index); // guests
+router.get("/register", registro.register);
 
-router.post('/', controller.checkUsuario);
+router.post("/register", registro.store);
 
 module.exports = router;

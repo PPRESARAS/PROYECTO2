@@ -1,2 +1,2 @@
-let db = require ("../database/models/index");
+let db = require ("../database/models");
 

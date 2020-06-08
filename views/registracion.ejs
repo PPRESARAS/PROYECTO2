@@ -26,9 +26,9 @@
       <button class="uk-button uk-button-default botonlindo" type="button">MENU</button>
         <div uk-dropdown="pos: left-top" style="position:fixed;">
           <ul class="uk-nav uk-dropdown-nav">
-            <li class="uk-active miLi"><a href="login.ejs">LOGIN</a></li>
-            <li class="uk-active miLi"><a href="registracion.ejs">REGISTRARSE</a></li> 
-            <li class="uk-active miLi"><a href="login.ejs">MI PERFIL</a></li>
+            <li class="uk-active miLi"><a href="/login">LOGIN</a></li>
+            <li class="uk-active miLi"><a href="/registracion">REGISTRARSE</a></li> 
+            <li class="uk-active miLi"><a href="/login">MI PERFIL</a></li>
           </ul>
         </div>
     </div>
@@ -38,36 +38,46 @@
 
 <body>
   
-  <form action="/registracion" method="POST" class="formulario">
-    <div class="campo">
-    <label for="NombreDeUsuario">
+  <form action="/registracion" method="POST" class="form-horizontal">
+    <div class="form-group">
+    <label for="NombreDeUsuario" class="control-label col-sm-2">
       NOMBRE DE USUARIO: <span>*</span>
     </label>
-    <input type="text" id="NombreDeUsuario" name="NombreDeUsuario" required>
+    <div class="col-sm-10">
+    <input class="form-group" type="text" id="NombreDeUsuario" name="NombreDeUsuario" required>
     </div>
-    <div class="campo">
-      <label for="EmailDeUsuario">
+    </div>
+    <div class="form-group">
+      <label for="EmailDeUsuario" class="control-label col-sm-2">
         EMAIL DE USUARIO: <span>*</span>
       </label>
-      <input type="email" id="EmailDeUsuario" name="EmailDeUsario" required>
+      <div class="col-sm-10">
+      <input class="form-group" type="email" id="EmailDeUsuario" name="EmailDeUsario" required>
     </div>
-    <div class="campo">
-      <label for="ContraseniaDeUsuario">
+    </div>
+    <div class="form-group">
+      <label for="ContraseniaDeUsuario" class="control-label col-sm-2">
         CONTRASEÑA: <span>*</span>
       </label>
-      <input type="password" id="ContraseniaDeUsuario" name="ContraseniaDeUsuario" required>
+      <div class="col-sm-10">
+      <input class="form-group" type="password" id="ContraseniaDeUsuario" name="ContraseniaDeUsuario" required>
     </div>
-    <div class="campo">
-      <label for="FechaDeNacimiento">
+    </div>
+    <div class="form-group">
+      <label for="FechaDeNacimiento" class="control-label col-sm-2">
         FECHA DE NACIMIENTO:
       </label>
+      <div class="col-sm-10">
       <input type="date" id="FechaDeNacimiento" name="FechaDeNacimiento">
     </div>
-    <div class="botones">
-      <button type="submit">
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">
         REGISTRAR
       </button>
-      <a href="/login.ejs">Login</a>
+      <a href="/login">Login</a>
+    </div>
     </div>
   </form>
 
