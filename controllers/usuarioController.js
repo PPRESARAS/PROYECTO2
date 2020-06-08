@@ -3,12 +3,12 @@ let Op = DB.Sequelize.Op;
 
 module.exports = {
     Usuarios:(req, res) => { // todos los usuarios
-        res.render('Usuarios')
+        res.render('Usuario')
     },
 
     resultadoUsuarios: (req, res) => {
         var busqueda = req.query.NombreDeUsuario
-        DB.Usuarios.findAll({
+        DB.Usuario.findAll({
             where:{
                 [Op.or]:[{NombreDeUsuario: {[Op.like]:"%" + busqueda + "%"}},
                          {EmailDeUsuario: {[Op.like]: "%" + busqueda + "%"}}   

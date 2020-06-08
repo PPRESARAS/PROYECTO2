@@ -1,9 +1,9 @@
-let db = require("../db/models/index");
+let db = require("../database/models");
 let operadores = db.Sequelize.Op;
 
-let reseniasController = {
-    listado: (req, res) => {
-        db.Resenias.findAll({
+module.exports = {
+    listado: function(req, res) {
+        db.Resenia.findAll({
             include:[{
                 model: Usuario,
             }]
@@ -11,38 +11,16 @@ let reseniasController = {
         .then(function(resultados) {
             // ACA VA A IR LA CONSECUENCIA
             res.render("resenias", {
-                Resenias: Resenias
+                Resenia: Resenia
             })
         })
         .catch((errores) => {
             res.send(errores)
         })
     },
-    
-    best: (req, res) => {
-        db.Resenias.findAll(
-            {
-                where: [
-                    { Puntaje: { [operadores.gte]: 8} }
-                ], 
-                order: [
-                    "Puntaje", "DESC"
-                ]
-            }
-        )
-        .then(function(resenias) {
-            // ACA VA A IR LA CONSECUENCIA
-            res.render("resenias", {
-                resenias:resenias
-            })
-        })
-        .catch((e) => {
-            res.send(e)
-        })
-    },
 
     create: function(req, res) {
-        db.Resenias.findAll()
+        db.Resenia.findAll()
         .then((resenia) => {
             res.render("nuevaResenia", {
                 IdResenias: req.body.IdResenias,
@@ -54,6 +32,7 @@ let reseniasController = {
         })
         
     },
+
     store: function(req, res) {
         let Resenias = {
             IdResenias: req.body.IdResenias,
@@ -83,48 +62,27 @@ let reseniasController = {
             })
         } else {
             // No hubieron errores, todo bien :)
-            db.Resenias.create(resenias)
+            db.Resenia.create(resenias)
             .then(() => {
                 res.redirect("/resenias")
             })
         }
     },
     editar: function(req, res){
-        db.Resenias.findAll()
+        db.Resenia.findAll()
         .then((Resenias) => {
 
-            db.Resenias.findByPk(req.params.IdResenia)
+            db.Resenia.findByPk(req.params.IdResenia)
             .then((resenia) => {
                 //Consecuencia final
                 res.render("editarResenia", {
-                    Resenias : Resenias
+                    Resenia : Resenia
                 })
             })
 
         })
     },
-
-    actualizar: function(req, res) {
-        let resenia = {
-            IdResenia: req.body.IdResenia,
-            IdUsuario: req.body.Usuario,
-            IdPelicula: req.body.IdPelicula,
-            TextoResenia: req.doby.TextoResenia,
-            Puntaje: req.body.Puntaje,
-            FechaCreacion: req.doby.FechaCreacion,
-            FechaActualizacion: req.body.FechaActualizacion,
-        }
-
-        db.Resenias.update(resenia, {
-            where: {
-                IdResenia: req.params.IdResenia
-            }
-        })
-        .then(() => {
-            res.redirect("/resenias")
-        })
-    },
-
+    
     delete: function(req,res) {
         db.Resenia.destroy({
             where: {
@@ -137,5 +95,47 @@ let reseniasController = {
     }
     
 }
+    // best: (req, res) => {
+    //     db.Resenia.findAll(
+    //         {
+    //             where: [
+    //                 { Puntaje: { [operadores.gte]: 8} }
+    //             ], 
+    //             order: [
+    //                 "Puntaje", "DESC"
+    //             ]
+    //         }
+    //     )
+    //     .then(function(Resenias) {
+    //         // ACA VA A IR LA CONSECUENCIA
+    //         res.render("resenias", {
+    //             Resenias:Resenias
+    //         })
+    //     })
+    //     .catch((e) => {
+    //         res.send(e)
+    //     })
+    // },
 
-module.exports = reseniasController;
+    // actualizar: function(req, res) {
+    //     let resenia = {
+    //         IdResenia: req.body.IdResenia,
+    //         IdUsuario: req.body.Usuario,
+    //         IdPelicula: req.body.IdPelicula,
+    //         TextoResenia: req.doby.TextoResenia,
+    //         Puntaje: req.body.Puntaje,
+    //         FechaCreacion: req.doby.FechaCreacion,
+    //         FechaActualizacion: req.body.FechaActualizacion,
+    //     }
+
+    //     db.Resenia.update(resenia, {
+    //         where: {
+    //             IdResenia: req.params.IdResenia
+    //         }
+    //     })
+    //     .then(() => {
+    //         res.redirect("/resenias")
+    //     })
+    // },
+
+

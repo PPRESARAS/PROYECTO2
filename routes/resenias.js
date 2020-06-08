@@ -1,17 +1,20 @@
 var express = require('express');
-var router = express.router();
-let controller = require("../controller/reseniasController");
+var router = express.Router();
 
-router.get('/misResenias', reseniasController.listado);
+let reseniasController = require("../controllers/reseniasController");
 
-router.get('/login', controller.login),
+router.get('/misResenias', reseniasController.store);
 
 router.post('/resenias', reseniasController.listado);
 
-router.get('/editarResenia/:id', controller.editar);
+router.get('/nuevaResenia', reseniasController.create);
 
-router.post('/editarResenia/:id', controller.editarResenia);
+router.get('/editarResenia/:id', reseniasController.editar);
 
-router.get('/borrarResenia/:id', controller.borrar);
+router.post('/editarResenia/:id', reseniasController.editar);
 
-router.post('/borrarResenia/:id', controller.borrarResenia);
+router.get('/borrarResenia/:id', reseniasController.delete);
+
+router.post('/borrarResenia/:id', reseniasController.delete);
+
+module.exports = router;
