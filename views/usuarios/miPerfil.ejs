@@ -31,28 +31,28 @@
   </header>
    
 <h1>
-  PERFIL DE: <% Usuario.NombreDeUsuario %>
+  PERFIL DE: Usuario.NombreDeUsuario 
 </h1>
 <ul>
   <li>
-    EMAIL: <%= Usuario.EmailDeUsuario %>
+    EMAIL:  Usuario.EmailDeUsuario 
   </li>
   <li>
-    FECHA DE NACIMIENTO: <%= Usuario.FechaDeNacimiento %>
+    FECHA DE NACIMIENTO:  Usuario.FechaDeNacimiento 
   </li>
 </ul>
 <h1>
   SUS RESEÑAS:
 </h1><br>
-<% if(Resenias.length == 0){ %>
+ if(Resenias.length == 0){
   <p>¡NO TIENES NINGUNA RESEÑA AUN!</p>
-<%}%>
+}
   else{
-    <% for (let i=0; i < Resenias.length; i++) { %>
-      <h2>RESEÑA DE LA PELICULA <%= reviews[i].IdPelicula %></h2>
-      <p> <%= Resenias[i].TextoResenia %></p>
-    <% } %>
-  <% } %>
+     for (let i=0; i < Resenias.length; i++) { 
+      <h2>RESEÑA DE LA PELICULA reviews[i].IdPelicula </h2>
+      <p>  Resenias[i].TextoResenia </p>
+    } 
+  } 
 
 
  <footer  class="Piedepagina">
