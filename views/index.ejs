@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOWTIME</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
+<script src="https://kit.fontawesome.com/0fb732c451.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="cabecera">
+      <ul class="headerul">
+        <a src="logotipo" href="/views/index.ejs"> <img  src="/images/logo.png" alt="logotipo" class="logo"> </a>
+        <form class="buscadorheader" action="/views/searchbar.ejs" method="get">
+          <div class="form-groupSearch">
+            <input type="search" class="form-control" name="search" placeholder="  Buscar" >
+          </div>
+        </form>
+
+        <div class="uk-inline boundary botones">
+          <button class="uk-button uk-button-default botonlindo" type="button">Menu</button>
+            <div uk-dropdown="pos: left-top" style="position:fixed;">
+              <ul class="uk-nav uk-dropdown-nav">
+                  <li class="uk-active miLi"><a href="buscar.ejs">Filtros</a></li>
+                  <li miLi><a "uk-button uk-button-default" href="listado.ejs" id="generos">Generos</a>
+                  <li class="uk-nav-divider miLi"></li>
+              </ul>
+            </div>
+        </div>
+      </ul>
+  	</header>
+    <main>
+      <section class= "series">
+        <div class="titulo">
+          <p>Listado de series con mayor puntaje</p>
+        </div>
+
+        <div class="uk-position-relative uk-visible-toggle uk-light slider margen" tabindex="-1" uk-slider="autoplay: true" id="slider">
+          <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m puntaje bordes" >
+          </ul>
+          <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+          <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+        </div>
+
+
+        <div class="titulo">
+          <p>Listado de las series mas populares</p>
+        </div>
+
+        <div class="uk-position-relative uk-visible-toggle uk-light slider margen" tabindex="-1" uk-slider="autoplay: true" id="slider" >
+          <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m populares">
+          </ul>
+          <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+          <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+        </div>
+
+
+        <div class="titulo">
+            <p>Listado de series que estan al aire hoy</p>
+        </div>
+
+        <div class="uk-position-relative uk-visible-toggle uk-light slider margen" tabindex="-1" uk-slider="autoplay: true" id="slider">
+          <ul class="uk-slider-items uk-child-width-1-2 uk- child-width-1-3@s uk-child-width-1-4@m aire">
+          </ul>
+          <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+          <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"> </a>
+        </div>
+
+      </section>
+
+    </main>
+
+        <footer  class="Piedepagina">
+            <ul class="grupo">
+              <li>
+                <h2 class="nombre">Pedro Presaras</h2>
+              </li>
+              <li>
+                <h2 class="nombre" >Alejo Gonzalez Medina</h2>
+               </li>
+            </ul>
+
+
+          <div class="logoTmdb">
+            <img src="/images/logodb.png" alt=""    href="#top" uk-scroll>
+          </div>
+
+
+        </footer>
+
+  </body>
+</html>
+
+
+<script src="../public/javascripts/index.js">
+  
+</script>
+
+
+<script>
+  var apikey= "8eaabce657eccc6be932f97172c1a728"
+
+fetch("https://api.themoviedb.org/3/tv/top_rated?api_key=8eaabce657eccc6be932f97172c1a728&language=en-US&page=1")
+  .then(function(response) {
+    return response.json();
+  })  // el fetch me trae la data en formato objeto (general) con muchos resultados (array)
+
+  // en el segundo den me lo convierte en un objeto que yo puedo utilizar
+  .then(function(myJson) {
+    var posterURL = 'https://image.tmdb.org/t/p/original'
+    console.log(myJson);
+    for (var i = 0; i < myJson.results.length; i++) { 
+      myJson.results[i] 
+      console.log(  myJson.results[i].name  )
+      console.log(  posterURL+myJson.results[i].poster_path)
+      var elementoHTML = document.querySelector('.puntaje') 
+
+      var contenidoParaInsertar = '<li class="uk-transition-toggle unidad">'
+      contenidoParaInsertar += '<img src="'+posterURL+ myJson.results[i].poster_path+'" alt="" class="poster uk-transition-scale-up">'
+      contenidoParaInsertar += '<div class="uk-position-center uk-panel contenedora"><a href="detalles.html?id='+ myJson.results[i].id+'" class="link uk-transition-scale-up">'+myJson.results[i].name +'</a></div>'
+      contenidoParaInsertar += '</li>'
+
+      elementoHTML.innerHTML += contenidoParaInsertar
+
+      // una vez que me sale el array completo de toda la info , selecciono
+      //que es lo que voy a utilizar (en este caso, quiero utilizar los resultados)
+      //para utilizar los resultados en el json le pongo .resultados
+      //una vez hecho esto utilizo un for para que se me corra el array solo sin tener que poner uno por usando
+      // re escribo el json con la variable i para que reccorra el array
+      // por ultimo agrego un console log para hacer visible la variable
+     } 
+
+
+  });
+  fetch('https://api.themoviedb.org/3/tv/popular?api_key=8eaabce657eccc6be932f97172c1a728&language=en-US&page=1')
+  .then(function(response){
+    return response.json();
+  })
+
+  .then (function(myJson){
+    var posterURL = 'https://image.tmdb.org/t/p/original'
+    console.log(myJson);
+    for (var i = 0; i < myJson.results.length; i++) { 
+      myJson.results[i]
+      console.log(  myJson.results[i].name )
+      console.log(posterURL+myJson.results[i].poster_path);
+
+      var elementoHTML = document.querySelector('.populares')
+      var insertar = '<li class="uk-transition-toggle unidad">'
+      insertar += '<img src="'+posterURL+ myJson.results[i].poster_path+'" alt="" class="poster uk-transition-scale-up"</a>' //quiero que con cada genero me tire una foto que lo represente
+      insertar += '<div class="uk-position-center uk-panel contenedora"> <a href="detalles.html?id='+ myJson.results[i].id+'" class="uk-transition-scale-up">'+myJson.results[i].name +'</a> </div>'
+      insertar += '</li>'
+
+      elementoHTML.innerHTML += insertar
+    }  
+  })
+
+  fetch('https://api.themoviedb.org/3/tv/airing_today?api_key=8eaabce657eccc6be932f97172c1a728&language=en-US&page=1')
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(myJson) {
+      var posterURL ='https://image.tmdb.org/t/p/original'
+      console.log(myJson);
+      for (var i = 0; i < myJson.results.length; i++) { 
+       myJson.results[i] 
+        console.log(myJson.results[i].name);
+        console.log(posterURL+myJson.results[i].poster_path);
+
+        var elementoHTML = document.querySelector('.aire')
+        var insertar2 = '<li class="uk-transition-toggle unidad">'
+        insertar2 += '<img src="'+posterURL+ myJson.results[i].poster_path+'" alt="" class="poster uk-transition-scale-up"</a>'
+        insertar2 += '<div class="uk-position-center uk-panel contenedora"> <a href="detalles.html?id='+ myJson.results[i].id+'" class="uk-transition-scale-up">'+myJson.results[i].name +'</a></div>'
+        insertar2 += '</li>'
+
+        elementoHTML.innerHTML += insertar2
+       }
+    });
+</script>

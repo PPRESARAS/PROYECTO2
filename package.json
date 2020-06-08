@@ -1,0 +1,27 @@
+{
+  "name": "proyecto2",
+  "version": "1.0.0",
+  "description": "PROYECTO2",
+  "main": "app.js",
+
+  "dependencies": {
+    "mysql2": "^2.1.0",
+    "mysql": "^2.18.1",
+    "sequelize": "^5.21.10"
+  },
+
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PPRESARAS/PROYECTO2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PPRESARAS/PROYECTO2/issues"
+  },
+  "homepage": "https://github.com/PPRESARAS/PROYECTO2#readme"
+}

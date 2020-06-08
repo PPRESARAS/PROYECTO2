@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOWTIME</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="/stylesheets/detalles.css">
+
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
+<script src="https://kit.fontawesome.com/0fb732c451.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="cabecera">
+      <ul class="headerul">
+        <a src="logotipo" href="/views/index.ejs"> <img  src="/images/logo.png" alt="logotipo" class="logo"> </a>
+        <form class="buscadorheader" action="/views/searchbar.ejs" method="get">
+          <div class="form-groupSearch">
+            <input type="search" class="form-control" name="search" placeholder="  Buscar" >
+          </div>
+        </form>
+
+        <div class="uk-inline boundary botones">
+          <button class="uk-button uk-button-default botonlindo" type="button">Menu</button>
+            <div uk-dropdown="pos: left-top" style="position:fixed;">
+              <ul class="uk-nav uk-dropdown-nav">
+                  <li class="uk-active miLi"><a href="buscar.ejs">Filtros</a></li>
+                  <li miLi><a "uk-button uk-button-default" href="listado.ejs" id="generos">Generos</a>
+                  <li class="uk-nav-divider miLi"></li>
+              </ul>
+            </div>
+        </div>
+      </ul>
+  	</header>
+  </div>
+
+
+  <div class="columna">
+    <p class="pagina">Detalles de las Series</p>
+      <div class="detalles">
+        <img class="imagenPeli" src="" alt="">
+      <div class="info">
+        <div class="titulo">
+          <h3 class="title"></h3>
+        </div>
+
+      <div class="detalle">
+        <p class="overview">Sinopsis: </p>
+      </div>
+
+      <div class="idioma">
+        <p class="lenguaje">Lenguaje Original: </p>
+        <div class="genders">
+          <p class="generos">Genero: </p>
+        </div>
+
+        <div class="trailer">
+        </div>
+
+        <p uk-margin>
+          <button class="uk-button uk-button-default botonchoto "> Ver Recomendaciones</button>
+
+        <div class="relacionadas">
+
+          <div class="uk-position-relative uk-visible-toggle uk-light slider" tabindex="-1" uk-slider id="slider">
+          <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m relacion">
+          </ul>
+
+          <a class="uk-position-center-left uk-position-small uk-hidden-hover flechita" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+          <a class="uk-position-center-right uk-position-small uk-hidden-hover flechita" href="#" uk-slidenav-next uk-slider-item="next"> </a>
+
+          </div>
+
+        </div>
+      </div>
+      </div>
+      </div>
+  </div>
+
+<footer  class="Piedepagina">
+  <ul class="grupo">
+    <li>
+      <h2 class="nombre">Pedro Presaras</h2>
+    </li>
+    <li>
+      <h2 class="nombre" >Alejo Gonzalez Medina</h2>
+     </li>
+    </ul>
+
+    <div class="logoTmdb">
+      <img src="/PROYECTO2/public/images/logodb.png"  href="#top" uk-scroll alt="">
+    </div>
+</footer>
+
+  <script src="/public/javascripts/detalles.js"></script>
+</body>
+</html>
