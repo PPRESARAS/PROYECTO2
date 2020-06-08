@@ -2,10 +2,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Perfil</title>
+    <title>MI PERFIL</title>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-a11y="true"></script>
+    <link rel="stylesheet" href="../stylesheets/detalles.css">
 </head>
 <body class="bg-gray-300 flex flex-col h-screen justify-between">
   <header class="cabecera">
@@ -17,7 +18,7 @@
       </div>
     </form>
     <div class="uk-inline boundary botones">
-      <button class="uk-button uk-button-default botonlindo" type="button">MENU</button>
+      <button class="uk-button uk-button-default botonlindo" type="button" aria-expanded="false">MENU</button>
         <div uk-dropdown="pos: left-top" style="position:fixed;">
           <ul class="uk-nav uk-dropdown-nav">
             <li class="uk-active miLi"><a href="/login">LOGIN</a></li>
@@ -31,25 +32,24 @@
    <div>
         <div>
             <h1>
-                <%= NombreDeUsuario %>
+                NombreDeUsuario 
             </h1>
         </div>
         <div>
-            <h2>
-                <%= EmailDeUsuario %> 
-            </h2>
+
+                EmailDeUsuario
+
         </div>
         <div>
-            <h3>
-                <b>Fecha De Nacimiento</b> <br>
-                <%= moment(FechaDeNacimiento).format('Do MMM YYYY') %> 
-            </h3>
+
+              Fecha De Nacimiento <br>
+               moment(FechaDeNacimiento).format('Do MMM YYYY')
         </div>
    </div>
- <%= if (Resenia.length == 0){%>
+  if (Resenia.length == 0) {
       <div> ¡NO HAS HECHO NINGUNA RESEÑA AUN!</div>
-  <% } %>
-<%= for ( let i=0; i < Resenia.length; i++){ %>
+  }
+ for (let i=0; i < Resenia.length; i++) { 
   <div class="title">
 
   </div>
@@ -60,18 +60,17 @@
 
   </div>
   <div >
-    <%= Resenia[i].TextoResenia %> 
+    (Resenia[i].TextoResenia) 
  </div>
- <!-- FALTA AGREGAR TODOS LOS BOTONES Y ACCIONES PARA EDITAR/BORRAR RESEÑA -->
 
-<% } %>
+} 
  <footer  class="Piedepagina">
   <ul class="grupo">
     <li>
-      <h2 class="nombre">Pedro Presaras</h2>
+      <h2 class="nombre" style="color: black;">Pedro Presaras</h2>
     </li>
     <li>
-      <h2 class="nombre" >Alejo Gonzalez Medina</h2>
+      <h2 class="nombre" style="color: black;">Alejo Gonzalez Medina</h2>
      </li>
   </ul>
 <div class="logoTmdb">
@@ -81,7 +80,8 @@
 
 </body>
 </html>
-<script src="../public/javascripts/detalles.js">
+
+<script src="/public/javascripts/index.js">
   
 </script>
 <script>

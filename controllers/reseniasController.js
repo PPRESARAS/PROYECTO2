@@ -1,5 +1,5 @@
 let db = require("../database/models");
-let operadores = db.Sequelize.Op;
+let Op = db.Sequelize.Op;
 
 module.exports = {
     listado: function(req, res) {
@@ -36,7 +36,7 @@ module.exports = {
     store: function(req, res) {
         let Resenias = {
             IdResenias: req.body.IdResenias,
-            IdUsuario: req.body.Usuario,
+            IdUsuarios: req.body.Usuarios,
             IdPelicula: req.body.IdPelicula,
             TextoResenia: req.doby.TextoResenia,
             Puntaje: req.body.Puntaje,
@@ -82,7 +82,7 @@ module.exports = {
 
         })
     },
-    
+
     delete: function(req,res) {
         db.Resenia.destroy({
             where: {

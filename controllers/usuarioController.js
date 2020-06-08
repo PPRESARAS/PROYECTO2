@@ -1,14 +1,14 @@
-let DB = require('../database/models');
-let Op = DB.Sequelize.Op;
+let db = require('../database/models');
+let Op = db.Sequelize.Op;
 
 module.exports = {
     Usuarios:(req, res) => { // todos los usuarios
-        res.render('Usuario')
+        res.render('usuarios/miPerfil')
     },
 
     resultadoUsuarios: (req, res) => {
         var busqueda = req.query.NombreDeUsuario
-        DB.Usuario.findAll({
+        db.Usuario.findAll({
             where:{
                 [Op.or]:[{NombreDeUsuario: {[Op.like]:"%" + busqueda + "%"}},
                          {EmailDeUsuario: {[Op.like]: "%" + busqueda + "%"}}   
@@ -25,4 +25,38 @@ module.exports = {
             }
         })
     },
+
+    detalleDeUsuarioPorNombre: (req, res) =>{
+        db.Usuario.findAll({
+            where: {
+                NombreDeUsuario: req.params.NombreDeUsuario,
+            }
+        })
+        .then(function(resultados) {
+            res.render('usuarios/miPerfil', {
+                IdUsuarios: resultados.IdUsuarios,
+                NombreDeUsuario: resultados.NombreDeUsuario,
+                EmailDeUsuario: resultados.EmailDeUsuario,
+                FechaDeNacimiento: resultados.FechaDeNacimiento,
+                Resenia: resultados.Resenia,
+            });
+        })
+    },
+
+    miPerfil: (req, res) =>{
+        db.Usuario.findOne({
+            where: {
+                EmailDeUsuario: req.params.EmailDeUsuario,
+            }
+        })
+        .then(function(resultados) {
+            res.render('usuarios/miPerfil', {
+                IdUsuarios: resultados.IdUsuarios,
+                NombreDeUsuario: resultados.NombreDeUsuario,
+                EmailDeUsuario: resultados.EmailDeUsuario,
+                FechaDeNacimiento: resultados.FechaDeNacimiento,
+                Resenia: resultados.Resenia,
+            });
+        })
+    }
 }

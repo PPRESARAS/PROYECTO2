@@ -12,7 +12,6 @@ var generoRouter = require('./routes/genero');
 var detallesRouter = require('./routes/detalles');
 var registroRouter = require('./routes/registracion');
 var loginRouter = require('./routes/login');
-var perfilRouter = require('./routes/users');
 var reseniasRouter = require('./routes/resenias');
 
 
@@ -38,7 +37,6 @@ app.use('/genero', generoRouter);
 app.use('/detalles', detallesRouter);
 app.use('/registracion', registroRouter);
 app.use('/login', loginRouter);
-app.use('/miPerfil', perfilRouter);
 app.use('/reseñas', reseniasRouter);
 
 

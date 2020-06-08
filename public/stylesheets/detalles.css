@@ -16,7 +16,7 @@ margin-bottom: 50px;
 }
 
 .headerul{
-background-image: linear-gradient(rgba(255, 170, 85, 0.5); rgba(255, 170, 85, 0) );
+background-image: linear-gradient(rgba(255, 170, 85, 0.5) rgba(255, 170, 85, 0) );
 display: flex;
 width: 100%;
 height: 100%;
@@ -48,7 +48,7 @@ top: 60px;
 }
 
 .headerul{
-background-image: linear-gradient(rgba(255, 170, 85, 0.5); rgba(255, 170, 85, 0) );
+background-image: linear-gradient(rgba(255, 170, 85, 0.5) rgba(255, 170, 85, 0) );
 display: flex;
 width: 100%;
 height: 100%;
@@ -56,7 +56,6 @@ margin: 0px;
 position: relative;
 justify-content: space-between;
 align-items: center;
->>>>>>> 936d6d62705e7ebb89661001278d888f85bb5c06
 }
 
 .logo{
@@ -78,7 +77,6 @@ width: 90%;
 background-color: none;
 height: 50px;
 border-radius: 25px;
-<<<<<<< HEAD
 }
 
 #icono{

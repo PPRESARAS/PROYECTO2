@@ -1,7 +1,7 @@
 let db = require('../database/models');
 let modulologin = require('../modulo-login');
 let Op =db.Sequelize.Op ;
-let usuarioController = require('../controllers/usuarioController');
+
 
 let controller = {
     login: function (req, res) {
