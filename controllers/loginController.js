@@ -1,26 +1,22 @@
-let db = require('../database/models')
+let db = require('../database/models');
+let Op =db.Sequelize.Op ;
+
 
 let moduloLogin = {
-    logUser: function(req, res) {
-        return res.render('login', {
-            errores: false,
-            EmailDeUsuario: false,
-    });
-},
-
-    chequearUsuario: function (req, res) {
-        return db.Usuarios.findOne({
-            where: {
-                EmailDeUsuario: EmailDeUsuario
-            }
-        })
-        .then(function(NombreDeUsuario) {
-            return NombreDeUsuario != null;
-        })
+    logUser: (req, res) => {
+        res.render('login') 
     },
 
-    buscarPorEmail: function (req, res){
-        return db.Usuarios.findOne({
+    validar:(req, res)=>{        
+      return  db.Usuario.findAll({
+            where:{
+                EmailDeUsuario: req.body.EmailDeUsuario,
+            }
+        },
+        )},
+
+       buscarPorEmail: function (req, res){
+        return db.Usuarios.findAll({
             where: {
                 EmailDeUsuario:EmailDeUsuario
             }
@@ -30,17 +26,6 @@ let moduloLogin = {
         })
     },
 
-    validar: function (req, res) {
-        return db.Usuarios.findOne({
-            where:{
-                EmailDeUsuario:EmailDeUsuario,
-                ContraseniaDeUsuario: ContraseniaDeUsuario
-            },
-        })
-        .then(resultados=>{
-            return resultados;
-        })
-    }
 }
 
 

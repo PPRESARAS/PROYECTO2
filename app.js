@@ -10,7 +10,7 @@ var usersRouter = require('./routes/users');
 var generoRouter = require('./routes/genero');
 var detallesRouter = require('./routes/detalles');
 var registroRouter = require('./routes/registracion');
-var loginRouter =require('./routes/login');
+var loginRouter = require('./routes/login');
 
 
 

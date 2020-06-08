@@ -39,18 +39,18 @@
   </header>
 
   <div class="formularioLogin">
-    <form action="/login" method="post">
-    <div class="campo">
-        <label for="EmailDeUsuario">
-            EMAIL DE USUARIO: <span>*</span>
+    <form action="/login" method="post" class="form-horizontal">
+    <div class="form-group">
+        <label for="EmailDeUsuario" class="control-label col-sm-2">
+            EMAIL DE USUARIO: <span style="color:red">*</span>
         </label>
-        <input type="email" id="EmailDeUsuario" name="EmailDeUsuario" required>
+        <input  class="form-group" type="email" id="EmailDeUsuario" name="EmailDeUsuario" style="color: black;" required>
     </div>
-    <div class="campo">
-        <label for="ContraseniaDeUsuario">
-            CONTRSEÑA DE USUARIO: <span>*</span>
+    <div class="form-group">
+        <label for="ContraseniaDeUsuario" class="control-label col-sm-2">
+            CONTRSEÑA DE USUARIO: <span style="color:red">*</span>
         </label>
-        <input type="password" id="ContrseniaDeUsuario" name="ContraseniaDeUsuario" required>
+        <input class="form-group" type="password" id="ContrseniaDeUsuario" name="ContraseniaDeUsuario" style="color: black;" required>
     </div>
     <div class="boton">
         <button type="submit">
@@ -70,7 +70,7 @@
 
 
 
-  <footer  class="Piedepagina">
+<footer  class="Piedepagina">
     <ul class="grupo">
       <li>
         <h2 class="nombre">Pedro Presaras</h2>
@@ -79,13 +79,9 @@
         <h2 class="nombre" >Alejo Gonzalez Medina</h2>
        </li>
     </ul>
-
-
   <div class="logoTmdb">
     <img src="/images/logodb.png" alt=""    href="#top" uk-scroll>
   </div>
-
-
 </footer>
 
 </body>

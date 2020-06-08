@@ -3,23 +3,23 @@ let op = db.Sequelize.Op;
 
 
 
-let registracionController ={
-    register: function(req, res) {
-        res.render("registracion");
+let registracionController = {
+    register: (req, res) => {
+        res.render("registracion")
     },
 
-    store: function(req, res) {
-        let Usuarios = {
+    store: (req, res) => {
+        let Usuario = {
             NombreDeUsuario: req.body.NombreDeUsuario,
             EmailDeUsuario: req.body.EmailDeUsuario,
             ContraseniaDeUsuario: req.body.ContraseniaDeUsuario,
         }
-
-        db.Usuarios.create(Usuarios)
+        db.Usuarios.create(Usuario)
+            res.redirect("/login")
         .then(() => {
             res.send("USUARIO CREADO")
         })
-    }
+    },
 
 
 }
