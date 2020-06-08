@@ -5,7 +5,7 @@ let reseniasController = require("../controllers/reseniasController");
 
 router.get('/misResenias', reseniasController.store);
 
-router.post('/resenias', reseniasController.listado);
+router.post('/', reseniasController.listado);
 
 router.get('/nuevaResenia', reseniasController.create);
 
