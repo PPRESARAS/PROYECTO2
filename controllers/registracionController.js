@@ -4,11 +4,11 @@ let op = db.Sequelize.Op;
 
 
 module.exports = {
-    register: (req, res) => {
+    register:   function (req, res) {
         res.render("registracion")
     },
 
-    store: (req, res) => {
+    store: function(req, res) {
         let Usuario = {
             NombreDeUsuario: req.body.NombreDeUsuario,
             EmailDeUsuario: req.body.EmailDeUsuario,
