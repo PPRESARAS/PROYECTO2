@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOWTIME</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
+<script src="https://kit.fontawesome.com/0fb732c451.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+  <header class="cabecera" style="top: -10px;">
+    <ul class="headerul">
+      <a src="logotipo" href="/index"> <img  src="/images/logo.png" alt="logotipo" class="logo"> </a>
+      <form class="buscadorheader" action="/usuarios/miPerfil" method="GET">
+        <div class="form-groupSearch">
+          <input type="search" class="form-control" name="search" placeholder="  BUSCAR USUARIO...">
+      </div>
+    </form>
+    <div class="uk-inline boundary botones">
+      <button class="uk-button uk-button-default botonlindo" type="button">MENU</button>
+        <div uk-dropdown="pos: left-top" style="position:fixed;">
+          <ul class="uk-nav uk-dropdown-nav">
+            <li class="uk-active miLi"><a href="/login">LOGIN</a></li>
+            <li class="uk-active miLi"><a href="/registracion">REGISTRARSE</a></li> 
+            <li class="uk-active miLi"><a href="/login">MI PERFIL</a></li>
+          </ul>
+        </div>
+    </div>
+    </ul>
+  </header>
+  
+  <h1 style="position: relative; top: 224px; left: 32px; color:white;">CREAR RESEÑA</h1>
+  <form action="/resenias/crear" method="POST" style="position: relative; top: 231px; left: 40px;">
+  <div>
+    <label for="" style="color: white;"> TU RESEÑA:</label><br>
+    <input type="text-area">
+  </div>
+  <div>
+      <label for="" style="color: white;"> PUNTAJE:</label><br>
+      <select name="Puntaje" >
+         
+          <option value="">1</option>
+          <option value="">2</option>
+          <option value="">3</option>
+          <option value="">4</option>
+          <option value="">5</option>
+          <option value="">6</option>
+          <option value="">7</option>
+          <option value="">8</option>
+          <option value="">9</option>
+          <option value="">10</option>
+      </select>
+  </div>
+  <br>
+  <button type="submit">ENVIAR</button>
+</form>
+</body>
+        <footer  class="Piedepagina" style="margin-top:470px;">
+            <ul class="grupo">
+              <li>
+                <h2 class="nombre">Pedro Presaras</h2>
+              </li>
+              <li>
+                <h2 class="nombre" >Alejo Gonzalez Medina</h2>
+               </li>
+            </ul>
+
+
+          <div class="logoTmdb">
+            <img src="/images/logodb.png" alt=""    href="#top" uk-scroll>
+          </div>
+
+
+        </footer>
+
+
+</html>

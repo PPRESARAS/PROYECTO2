@@ -3,11 +3,13 @@ var router = express.Router();
 
 let reseniasController = require("../controllers/reseniasController");
 
-router.get('/misResenias', reseniasController.store);
+// router.get('/misResenias', reseniasController.store);
 
-router.post('/', reseniasController.listado);
+router.get('/resenias', reseniasController.listado);
 
-router.get('/nuevaResenia', reseniasController.create);
+router.get('/crear', reseniasController.create);
+
+router.post('/crear', reseniasController.guardado);
 
 router.get('/editarResenia/:id', reseniasController.editar);
 

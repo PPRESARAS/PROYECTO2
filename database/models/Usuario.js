@@ -28,11 +28,18 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     let config = {
-        tableName : 'Usuarios',
+        tableName : "Usuarios",
         timestamps : false
     }
 
     let Usuario = sequelize.define(alias, cols, config);
+
+    Usuario.associate = function(models){
+        Usuario.hasMany(models.Resenia,{
+            as: "Resenia",
+            foreignKey: "IdUsuario"
+        });
+    }
 
     return Usuario;
 }

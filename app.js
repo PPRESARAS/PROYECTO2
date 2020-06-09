@@ -37,7 +37,7 @@ app.use('/genero', generoRouter);
 app.use('/detalles', detallesRouter);
 app.use('/registracion', registroRouter);
 app.use('/login', loginRouter);
-app.use('/reseñas', reseniasRouter);
+app.use('/resenias', reseniasRouter);
 
 
 

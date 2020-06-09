@@ -13,12 +13,11 @@ module.exports = {
             NombreDeUsuario: req.body.NombreDeUsuario,
             EmailDeUsuario: req.body.EmailDeUsuario,
             ContraseniaDeUsuario: req.body.ContraseniaDeUsuario,
-            FechaDeNacimiento: req.body.FechaDeNacimiento
+            FechaDeNacimiento: req.body.FechaDeNacimiento,
         }
         db.Usuario.create(Usuario)
         .then(() => {
             res.redirect("/login")
-            res.send("USUARIO CREADO")
         })
     },
 
